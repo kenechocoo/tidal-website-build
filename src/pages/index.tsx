@@ -110,7 +110,7 @@ export default function HomePage() {
           {/* Right Panel - Full-bleed Photo */}
           <div className="w-full md:w-1/2 h-64 md:h-full">
             <img
-              src="/airo-assets/images/pages/home/hero"
+              src="/assets/home-hero.png"
               alt="Modern Architecture"
               className="w-full h-full object-cover" />
           </div>
@@ -230,7 +230,7 @@ export default function HomePage() {
               {/* Full-Width Professional Team Photo */}
               <div className="mt-0 h-[450px] w-full">
                 <img
-                  src="https://88ven5w4cx.agent.c36.airoapp.ai/files/uploads/88ven5w4cx/88ven5w4cx_1773082556195_file_1SRAIImc5R.jpeg?sig=MFE4QeNiaGHUNrrEon2WLm6sBTKhmMz4ojMyVxRAUqU&exp=1773168956"
+                  src="/assets/team.jpg"
                   alt="Professional Team Collaboration"
                   className="w-full h-full object-cover grayscale-[20%]" />
               </div>
@@ -363,7 +363,7 @@ export default function HomePage() {
           {/* Background Photo with Overlay */}
           <div className="absolute inset-0">
             <img
-              src="/airo-assets/images/pages/home/hero"
+              src="/assets/home-hero.png"
               alt="Modern Houston Architecture"
               className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/20"></div>

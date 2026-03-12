@@ -1,6 +1,14 @@
 import express from "express";
-import { closeConnection } from "./db/client.ts";
 import path from "node:path";
+
+// Lazy-load DB client so the server starts even without a database config
+let closeConnection = async () => {};
+try {
+  const dbClient = await import("./db/client.ts");
+  closeConnection = dbClient.closeConnection;
+} catch (e) {
+  console.warn("Database not configured — skipping DB connection.", e.message);
+}
 
 export const viteServerBefore = (server, viteServer) => {
   console.log("VITEJS SERVER");

@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import AiroErrorBoundary from '../dev-tools/src/AiroErrorBoundary';
 import RootLayout from './layouts/RootLayout';
 import { routes } from './routes';
 import Spinner from './components/Spinner';
@@ -11,25 +10,19 @@ const SpinnerFallback = () => (
   </div>
 );
 
+const LayoutWithSuspense = () => (
+  <Suspense fallback={<SpinnerFallback />}>
+    <RootLayout>
+      <Outlet />
+    </RootLayout>
+  </Suspense>
+);
+
 // Create router with layout wrapper
 const router = createBrowserRouter([
   {
     path: '/',
-    element: import.meta.env.MODE === 'development' ? (
-      <AiroErrorBoundary>
-        <Suspense fallback={<SpinnerFallback />}>
-          <RootLayout>
-            <Outlet />
-          </RootLayout>
-        </Suspense>
-      </AiroErrorBoundary>
-    ) : (
-      <Suspense fallback={<SpinnerFallback />}>
-        <RootLayout>
-          <Outlet />
-        </RootLayout>
-      </Suspense>
-    ),
+    element: <LayoutWithSuspense />,
     children: routes,
   },
 ]);

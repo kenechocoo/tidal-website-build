@@ -343,7 +343,7 @@ export default function AssetManagementPage() {
           {/* Background Photo with Overlay */}
           <div className="absolute inset-0">
             <img
-              src="/airo-assets/images/pages/home/hero"
+              src="/assets/home-hero.png"
               alt="Modern Houston Architecture"
               className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/20"></div>

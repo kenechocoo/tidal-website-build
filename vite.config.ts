@@ -1,11 +1,42 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import sourceMapperPlugin from "./source-mapper/src/index";
-import { devToolsPlugin } from "./dev-tools/src/vite-plugin";
-import { fullStoryPlugin } from "./fullstory-plugin";
-import { errorInterceptorPlugin } from "./dev-tools/src/vite-error-interceptor";
 import apiRoutes from "vite-plugin-api-routes";
+import { URL } from "node:url";
+
+// Optional external plugins — gracefully skip if not available
+let sourceMapperPlugin: unknown = null;
+let devToolsPlugin: (() => Plugin) | null = null;
+let fullStoryPlugin: (() => Plugin) | null = null;
+let errorInterceptorPlugin: (() => Plugin) | null = null;
+
+// Important: keep these paths as non-literal strings so TypeScript doesn't try to
+// resolve them when the optional plugin folders are absent in this repo.
+const sourceMapperPath: string = "./source-mapper/src/index";
+const devToolsPluginPath: string = "./dev-tools/src/vite-plugin";
+const fullStoryPluginPath: string = "./fullstory-plugin";
+const errorInterceptorPath: string = "./dev-tools/src/vite-error-interceptor";
+
+try {
+	sourceMapperPlugin = (await import(sourceMapperPath)).default;
+} catch {
+	// optional
+}
+try {
+	devToolsPlugin = (await import(devToolsPluginPath)).devToolsPlugin;
+} catch {
+	// optional
+}
+try {
+	fullStoryPlugin = (await import(fullStoryPluginPath)).fullStoryPlugin;
+} catch {
+	// optional
+}
+try {
+	errorInterceptorPlugin = (await import(errorInterceptorPath)).errorInterceptorPlugin;
+} catch {
+	// optional
+}
 
 function extractHostname(value: string): string {
 	try {
@@ -46,7 +77,7 @@ export default defineConfig(({ mode }) => ({
 	plugins: [
 		react({
 			babel: {
-				plugins: [sourceMapperPlugin],
+				plugins: sourceMapperPlugin ? [sourceMapperPlugin] : [],
 			},
 		}),
 		apiRoutes({
@@ -56,7 +87,11 @@ export default defineConfig(({ mode }) => ({
 			forceRestart: mode === "development",
 		}),
 		...(mode === "development"
-			? [devToolsPlugin() as Plugin, fullStoryPlugin(), errorInterceptorPlugin()]
+			? [
+					devToolsPlugin ? (devToolsPlugin() as Plugin) : null,
+					fullStoryPlugin ? fullStoryPlugin() : null,
+					errorInterceptorPlugin ? errorInterceptorPlugin() : null,
+				].filter(Boolean)
 			: []),
 	],
 

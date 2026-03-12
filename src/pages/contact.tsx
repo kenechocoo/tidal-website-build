@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/select';
 import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 
 /**
  * Contact page - Tidal Realty Services
@@ -29,7 +29,7 @@ export default function ContactPage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // Form submission logic here
     console.log('Form submitted:', formData);
@@ -46,7 +46,7 @@ export default function ContactPage() {
           {/* Left Half - Photo with Contact Info Overlay */}
           <div className="w-full md:w-1/2 h-[400px] md:h-auto relative">
             <img
-              src="/airo-assets/images/pages/home/hero"
+              src="/assets/home-hero.png"
               alt="Houston Skyline"
               className="w-full h-full object-cover" />
             
@@ -283,7 +283,7 @@ export default function ContactPage() {
           {/* Background Photo with Overlay */}
           <div className="absolute inset-0">
             <img
-              src="/airo-assets/images/pages/home/hero"
+              src="/assets/home-hero.png"
               alt="Modern Houston Architecture"
               className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/20"></div>

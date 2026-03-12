@@ -3,8 +3,7 @@ import { lazy } from 'react';
 import HomePage from './pages/index';
 
 // Lazy load components for code splitting (except HomePage for instant loading)
-const isDevelopment = import.meta.env.MODE === 'development';
-const NotFoundPage = isDevelopment ? lazy(() => import('../dev-tools/src/PageNotFound')) : lazy(() => import('./pages/_404'));
+const NotFoundPage = lazy(() => import('./pages/_404'));
 const ServicesPage = lazy(() => import('./pages/services'));
 const ListingsPage = lazy(() => import('./pages/listings'));
 const AssetManagementPage = lazy(() => import('./pages/asset-management'));
