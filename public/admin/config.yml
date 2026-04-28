@@ -2,9 +2,9 @@ backend:
   name: github
   repo: kenechocoo/tidal-website-build
   branch: main
-  # PKCE auth — direct to GitHub, no OAuth proxy needed
-  auth_type: pkce
-  app_id: Ov23liFJcRDWp7FkAnXn
+  # OAuth proxy via our own Netlify Functions
+  base_url: https://tidalrealtyservices.com
+  auth_endpoint: .netlify/functions/auth
 
 # Where uploaded images are stored in the repo
 media_folder: public/uploads
