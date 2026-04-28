@@ -100,7 +100,7 @@ export default function TheNestPage() {
                 Where Expertise Meets Excellence
               </h1>
               <p className="text-xl md:text-2xl opacity-90 mb-8">
-                We're more than a real estate company—we're your partners in building wealth and achieving property goals.
+                We're more than a real estate company. We're your partners in building wealth and achieving property goals.
               </p>
             </motion.div>
           </div>
@@ -128,7 +128,7 @@ export default function TheNestPage() {
                     We saw an industry where agents prioritized quick commissions over long-term relationships, where property managers were reactive instead of proactive, and where investors struggled to find trustworthy guidance.
                   </p>
                   <p>
-                    So we built something different. A company where transparency isn't just a buzzword—it's how we operate. Where expertise is backed by results. Where your success is our success.
+                    So we built something different. A company where transparency isn't just a buzzword, it's how we operate. Where expertise is backed by results. Where your success is our success.
                   </p>
                   <p>
                     Today, we manage over 500 properties, have facilitated $250M+ in transactions, and maintain a 98% client satisfaction rate. But the numbers that matter most? The families we've helped find homes, the investors whose portfolios we've grown, and the property owners who sleep better knowing we're on their side.

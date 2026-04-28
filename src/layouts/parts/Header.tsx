@@ -2,56 +2,78 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import settings from '@/content/settings.json';
 
 /**
  * Header component for Tidal Realty Services
  *
- * Professional navigation with company logo
+ * Horizontal logo lockup, active page indicator, scaled-up typography
+ * Uses --dark, --soft, --bgHolder tokens
  */
 export default function Header() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { href: '/services', label: 'Services' },
-    { href: '/asset-management', label: 'Asset Management' },
-    { href: '/the-nest', label: 'The Nest' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'Home' },
+    { href: '/services', label: 'List for Sale' },
+    { href: '/rentals', label: 'List for Rent' },
+    { href: '/asset-management', label: 'Property Management' },
+    { href: settings.theNestUrl, label: 'The Nest', external: true },
+    { href: '/contact', label: 'Contact Us' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <header className="sticky top-0 z-50 backdrop-blur-md border-b shadow-sm" style={{ background: 'color-mix(in srgb, var(--bgHolder) 97%, transparent)', borderColor: 'color-mix(in srgb, var(--dark) 10%, transparent)' }}>
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 text-xl font-bold text-foreground group">
-            <img 
-              src="/assets/tidal-logo.png" 
-              alt="Tidal Realty Services" 
-              className="h-12 w-12 object-contain group-hover:scale-105 transition-transform"
+        <div className="flex h-[72px] items-center justify-between">
+          {/* Horizontal Logo Lockup — icon + wordmark inline, max 40px height */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/assets/tidal-logo.png"
+              alt={settings.businessName}
+              className="h-12 w-12 object-contain group-hover:scale-105 transition-transform mix-blend-multiply"
             />
-            <span className="text-foreground group-hover:text-primary transition-colors">
-              Tidal Realty Services
+            <span className="text-[20px] font-bold tracking-[0.06em] uppercase leading-none group-hover:text-primary transition-colors" style={{ color: 'var(--dark)' }}>
+              {settings.businessName}
             </span>
           </Link>
 
           <nav className="hidden lg:flex gap-8 items-center">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary relative ${
-                  location.pathname === item.href
-                    ? 'text-foreground'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {item.label}
-                {location.pathname === item.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                )}
-              </Link>
-            ))}
-            <Button size="sm" className="ml-4" asChild>
+            {navItems.map((item) =>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground"
+                  style={{ '--hover-color': 'var(--dark)' } as React.CSSProperties}
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 ${
+                    location.pathname === item.href
+                      ? ''
+                      : 'text-muted-foreground'
+                  }`}
+                  style={location.pathname === item.href ? { color: 'var(--dark)' } : undefined}
+                >
+                  {item.label}
+                  {location.pathname === item.href ? (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'var(--dark)' }} />
+                  ) : (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
+                  )}
+                </Link>
+              )
+            )}
+            <Button size="sm" className="ml-4 text-white text-[15px] font-bold tracking-[0.08em] px-6" style={{ background: 'var(--dark)' }} asChild>
               <Link to="/contact">Get Started</Link>
             </Button>
           </nav>
@@ -66,23 +88,37 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-border py-4">
+          <div className="lg:hidden border-t py-4" style={{ borderColor: 'color-mix(in srgb, var(--dark) 10%, transparent)' }}>
             <nav className="flex flex-col gap-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary py-3 px-2 rounded-md ${
-                    location.pathname === item.href
-                      ? 'text-foreground bg-accent'
-                      : 'text-muted-foreground'
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Button size="sm" className="mt-4" asChild>
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[16px] font-medium tracking-[0.08em] transition-colors py-3 px-2 rounded-md text-muted-foreground"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`text-[16px] font-medium tracking-[0.08em] transition-colors py-3 px-2 rounded-md ${
+                      location.pathname === item.href
+                        ? 'border-l-2'
+                        : 'text-muted-foreground'
+                    }`}
+                    style={location.pathname === item.href ? { color: 'var(--dark)', borderColor: 'var(--dark)', background: 'var(--soft)' } : undefined}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+              <Button size="sm" className="mt-4 text-white text-[15px] font-bold" style={{ background: 'var(--dark)' }} asChild>
                 <Link to="/contact">Get Started</Link>
               </Button>
             </nav>

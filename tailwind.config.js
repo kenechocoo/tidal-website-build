@@ -57,10 +57,20 @@ export default {
 		fontFamily: {
 			sans: ['var(--font-sans)'],
 			heading: ['var(--font-heading)'],
+			display: ['var(--font-display)'],
+			accent: ['var(--font-accent)'],
 			serif: ['var(--font-serif)'],
 			mono: ['var(--font-mono)']
 		},
   		keyframes: {
+  			'ken-burns': {
+  				'0%': { transform: 'scale(1.05)' },
+  				'100%': { transform: 'scale(1.0)' }
+  			},
+  			'scroll-hint': {
+  				'0%': { transform: 'translateY(0)' },
+  				'100%': { transform: 'translateY(8px)' }
+  			},
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -119,6 +129,8 @@ export default {
   			}
   		},
   		animation: {
+  			'ken-burns': 'ken-burns 12s ease-in-out infinite alternate',
+  			'scroll-hint': 'scroll-hint 1.4s ease-in-out infinite alternate',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'spin-slow': 'spin 3s linear infinite',

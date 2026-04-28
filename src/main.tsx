@@ -4,6 +4,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import './styles/globals.css';
 
+// Prevent Vite preload errors from killing the app
+window.addEventListener('vite:preloadError', (event) => {
+  event.preventDefault();
+  window.location.reload();
+});
+
 // Add robots meta tag only in development mode
 if (import.meta.env.MODE === 'development') {
   const meta = document.createElement('meta');

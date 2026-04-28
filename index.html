@@ -7,6 +7,16 @@
     <title>Tidal Realty Services</title>
   </head>
   <body class="fs-unmask-airo-app-builder">
+    <!-- Static form for Netlify Forms build-time detection (required for SPA) -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" style="position:absolute;left:-9999px;top:-9999px;visibility:hidden;">
+      <input type="text" name="Full Name" />
+      <input type="email" name="Email" />
+      <input type="tel" name="Phone" />
+      <input type="text" name="Interested In" />
+      <input type="text" name="Property Address" />
+      <textarea name="Message"></textarea>
+      <input name="bot-field" />
+    </form>
     <div id="app" class="fs-unmask-airo-app-builder"></div>
     <script type="module">
       if (import.meta.env.MODE === 'development') {

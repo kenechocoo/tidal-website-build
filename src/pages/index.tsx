@@ -2,72 +2,72 @@ import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import home from '@/content/home.json';
+import settings from '@/content/settings.json';
 
 /**
- * Home page component - Tidal Realty Services
+ * Home page — Tidal Realty Services
  *
- * Refined minimal luxury real estate design
- * Deep Navy (#1B2A4A), Warm Cream (#F0EDE6/#F5F0EB), Pure White
+ * Studio Story bordered container hero with Tiempos Headline.
+ * Color tokens: --dark (#001446), --soft (#dbd6c9), --bgHolder (#e2ded4)
  */
 export default function HomePage() {
   return (
     <>
-      <title>Tidal Realty Services - Full-Service Real Estate Brokerage</title>
-      <meta name="description" content="Full-service real estate brokerage specializing in property listings and professional property management. Exceptional service with flat-fee listings and competitive pricing." />
-      
-      <div className="bg-white">
-        {/* Section 1: Hero - Full Screen Split with Transparent Navbar */}
-        <section className="h-screen flex flex-col md:flex-row relative">
-          {/* Transparent Navigation Bar - Floats Over Hero */}
-          <nav className="absolute top-0 left-0 right-0 z-50 py-6 px-8">
-            <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-              {/* Logo + Company Name - Left */}
-              <Link to="/" className="flex flex-col items-start">
+      <title>{home.meta.title}</title>
+      <meta name="description" content={home.meta.description} />
+
+      <div>
+        {/* ═══════════════════════════════════════════════════════════════════
+            SECTION 1 — HERO: STUDIO STORY BORDERED CONTAINER
+            Solid navbar + framed photo with bottom gradient + pinned text
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="flex flex-col relative" style={{ background: 'var(--dark)' }}>
+          {/* Solid Navbar — sits above photo, not overlapping */}
+          <nav className="relative z-10 h-[72px] flex-shrink-0 flex items-center px-8" style={{ background: 'var(--bgHolder)' }}>
+            <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
+              <Link to="/" className="flex items-center gap-3 group">
                 <img
                   src="/assets/tidal-logo.png"
-                  alt="Tidal Realty Services"
-                  className="h-12 w-12 object-contain mb-1" />
-                <span className="text-[10px] tracking-[0.2em] text-[#1B2A4A] uppercase font-light">
-                  Tidal Realty Services
+                  alt={settings.businessName}
+                  className="h-12 w-12 object-contain group-hover:scale-105 transition-transform mix-blend-multiply"
+                />
+                <span className="text-[20px] font-bold tracking-[0.06em] uppercase leading-none group-hover:text-primary transition-colors" style={{ color: 'var(--dark)' }}>
+                  {settings.businessName}
                 </span>
               </Link>
 
-              {/* Navigation Links - Right */}
-              <div className="hidden md:flex items-center gap-8">
-                <Link
-                  to="/services"
-                  className="text-[11px] tracking-[0.15em] text-[#1B2A4A] hover:opacity-60 transition-opacity font-light uppercase">
-                  Services
+              <div className="hidden lg:flex items-center gap-8">
+                <Link to="/" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1" style={{ color: 'var(--dark)' }}>
+                  Home
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'var(--dark)' }} />
                 </Link>
-                <span className="text-[#1B2A4A] opacity-30">·</span>
-                <Link
-                  to="/asset-management"
-                  className="text-[11px] tracking-[0.15em] text-[#1B2A4A] hover:opacity-60 transition-opacity font-light uppercase">
-                  Asset Management
+                <Link to="/services" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
+                  List for Sale
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </Link>
-                <span className="text-[#1B2A4A] opacity-30">·</span>
-                <Link
-                  to="/the-nest"
-                  className="text-[11px] tracking-[0.15em] text-[#1B2A4A] hover:opacity-60 transition-opacity font-light uppercase">
+                <Link to="/rentals" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
+                  List for Rent
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
+                </Link>
+                <Link to="/asset-management" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
+                  Property Management
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
+                </Link>
+                <a href={settings.theNestUrl} target="_blank" rel="noopener noreferrer" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
                   The Nest
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
+                </a>
+                <Link to="/contact" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
+                  Contact Us
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </Link>
-                <span className="text-[#1B2A4A] opacity-30">·</span>
-                <Link
-                  to="/contact"
-                  className="text-[11px] tracking-[0.15em] text-[#1B2A4A] hover:opacity-60 transition-opacity font-light uppercase">
-                  Contact
-                </Link>
-                <span className="text-[#1B2A4A] opacity-30">·</span>
-                <Button
-                  size="sm"
-                  className="bg-[#1B2A4A] text-white hover:bg-[#1B2A4A]/90 text-[11px] tracking-[0.15em] uppercase px-6"
-                  asChild>
+                <Button size="sm" className="ml-4 text-white text-[15px] font-bold tracking-[0.08em] px-6" style={{ background: 'var(--dark)' }} asChild>
                   <Link to="/contact">Get Started</Link>
                 </Button>
               </div>
 
-              {/* Mobile Menu Button */}
-              <button className="md:hidden text-[#1B2A4A]">
+              <button className="lg:hidden p-2 hover:bg-accent rounded-md transition-colors" style={{ color: 'var(--dark)' }}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -75,220 +75,86 @@ export default function HomePage() {
             </div>
           </nav>
 
-          {/* Left Panel - Pure White Background */}
-          <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-16 relative">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-[550px] w-full">
-
-              <h1 className="text-[52px] md:text-[60px] leading-[1.1] text-[#1B2A4A] mb-8">
-                We do it right,<br />we make it personal.
-              </h1>
-              <p className="text-base text-[#888888] mb-10 leading-relaxed">
-                Tidal Realty Services is a full-service real estate brokerage specializing in property listings and professional property management.
-              </p>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-[#F5F0EB] border border-[#1B2A4A]/20 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors"
-                asChild>
-                <Link to="/contact">
-                  Let Us Talk <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
-
-            {/* Bottom-left decorative elements */}
-            <div className="absolute bottom-8 left-8 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#1B2A4A]"></div>
-              <div className="text-[#1B2A4A] text-2xl">↓</div>
-            </div>
-          </div>
-
-          {/* Right Panel - Full-bleed Photo */}
-          <div className="w-full md:w-1/2 h-64 md:h-full">
+          {/* Photo Container — reduced height so text is more prominent */}
+          <div className="relative z-10 mx-8 mb-0 h-[65vh] overflow-hidden rounded-2xl">
+            {/* Photo — slightly zoomed and angled */}
             <img
-              src="/assets/home-hero.png"
-              alt="Modern Architecture"
-              className="w-full h-full object-cover" />
-          </div>
-        </section>
+              src={home.hero.image}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ transform: 'scale(1.08) rotate(-1deg)', transformOrigin: '50% 40%' }}
+            />
 
-        {/* Section 2: Our Focus - Enhanced with Geometric Line Art */}
-        <section className="min-h-screen flex items-center">
-          <div className="w-full flex flex-col md:flex-row">
-            {/* Left Column - Warm Cream Background */}
-            <div className="w-full md:w-1/2 bg-[#F0EDE6] flex items-center p-16 min-h-[600px]">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="max-w-[600px]">
+            {/* Warm beige tint + bottom dark gradient overlay — stronger so text pops */}
+            <div
+              className="absolute inset-0 z-[1]"
+              style={{ background: 'linear-gradient(to top, rgba(0, 20, 70, 0.72) 0%, rgba(0, 20, 70, 0.3) 45%, rgba(226, 222, 212, 0.25) 100%)' }}
+            />
 
-                {/* Small uppercase label */}
-                <div className="text-[12px] tracking-[0.3em] text-[#1B2A4A] uppercase font-semibold mb-8">
-                  Our Focus
-                </div>
-
-                {/* Double vertical line divider with quote */}
-                <div className="flex gap-6 relative">
-                  <div className="flex gap-2 flex-shrink-0">
-                    <div className="w-0.5 bg-[#1B2A4A]"></div>
-                    <div className="w-0.5 bg-[#1B2A4A] opacity-30"></div>
-                  </div>
-                  <div>
-                    <p className="text-[22px] md:text-[24px] text-[#1B2A4A] leading-relaxed mb-10">
-                      "Our focus is simple: deliver an exceptional client experience while protecting and maximizing your bottom line. That commitment is why we offer innovative programs such as flat-fee property listings and highly competitive property management pricing — value that many of our clients consider unmatched."
-                    </p>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="bg-[#F0EDE6] border border-[#1B2A4A]/20 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors"
-                      asChild>
-                      <Link to="/services">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right Column - Warm Cream with Architectural Line Art */}
-            <div className="w-full md:w-1/2 bg-[#F0EDE6] flex items-center justify-center p-16 min-h-[600px] relative overflow-hidden">
-              {/* Subtle geometric line art - architectural blueprint style */}
-              <svg
-                className="absolute inset-0 w-full h-full opacity-[0.12]"
-                viewBox="0 0 800 800"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                {/* Diagonal intersecting lines */}
-                <line x1="0" y1="200" x2="800" y2="600" stroke="#888888" strokeWidth="1" />
-                <line x1="0" y1="600" x2="800" y2="200" stroke="#888888" strokeWidth="1" />
-                <line x1="200" y1="0" x2="600" y2="800" stroke="#888888" strokeWidth="0.5" />
-                <line x1="600" y1="0" x2="200" y2="800" stroke="#888888" strokeWidth="0.5" />
-                {/* Partial circle arc */}
-                <circle cx="650" cy="400" r="250" stroke="#888888" strokeWidth="1" fill="none" />
-                <circle cx="650" cy="400" r="180" stroke="#888888" strokeWidth="0.5" fill="none" />
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Our Portfolio - Horizontal Stat Bar + Full-Width Photo */}
-        <section className="py-20 bg-white">
-          <div className="max-w-[1400px] mx-auto px-8">
+            {/* Text — pinned bottom-left */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="absolute z-10 bottom-[52px] left-[24px] md:left-[48px]"
+            >
+              {/* Headline — Tiempos Headline */}
+              <h1
+                className="font-heading text-[52px] md:text-[80px] leading-[1.0] max-w-[640px] text-white drop-shadow-lg"
+                style={{ fontWeight: 400 }}
+              >
+                {home.hero.title}
+              </h1>
 
-              {/* Section Title */}
-              <h2 className="text-[12px] tracking-[0.3em] text-[#1B2A4A] uppercase font-semibold mb-12">
-                Our Portfolio
-              </h2>
+              {/* Body — Founders Grotesk — Capital "A" */}
+              <p className="font-sans text-[22px] leading-[1.6] max-w-[520px] mt-5 drop-shadow-md" style={{ fontWeight: 500, color: 'white', letterSpacing: '0.01em' }}>
+                {home.hero.subtitle}
+              </p>
 
-              {/* Horizontal Stat Bar - 4 Equal Columns */}
-              <div className="grid grid-cols-2 md:grid-cols-4 border-l border-[#1B2A4A]">
-                {/* Column 1 - White */}
-                <div className="bg-white py-20 px-8 text-center border-r border-[#1B2A4A]">
-                  <div className="text-[72px] md:text-[80px] leading-none text-[#1B2A4A] mb-4">23+</div>
-                  <div className="text-[10px] tracking-[0.25em] uppercase text-[#888888]">
-                    Units Under<br />Management
-                  </div>
-                </div>
-
-                {/* Column 2 - Deep Navy */}
-                <div className="bg-[#1B2A4A] py-20 px-8 text-center border-r border-[#1B2A4A]">
-                  <div className="text-[72px] md:text-[80px] leading-none text-white mb-4">25,000+</div>
-                  <div className="text-[10px] tracking-[0.25em] uppercase text-white/80">
-                    Square Feet<br />Managed
-                  </div>
-                </div>
-
-                {/* Column 3 - White */}
-                <div className="bg-white py-20 px-8 text-center border-r border-[#1B2A4A]">
-                  <div className="text-[72px] md:text-[80px] leading-none text-[#1B2A4A] mb-4">20+</div>
-                  <div className="text-[10px] tracking-[0.25em] uppercase text-[#888888]">
-                    Years of Houston<br />Real Estate Experience
-                  </div>
-                </div>
-
-                {/* Column 4 - Deep Navy */}
-                <div className="bg-[#1B2A4A] py-20 px-8 text-center border-r border-[#1B2A4A]">
-                  <div className="text-[72px] md:text-[80px] leading-none text-white mb-4">$75</div>
-                  <div className="text-[10px] tracking-[0.25em] uppercase text-white/80">
-                    Flat Property<br />Management Fee
-                  </div>
-                </div>
-              </div>
-
-              {/* Full-Width Professional Team Photo */}
-              <div className="mt-0 h-[450px] w-full">
-                <img
-                  src="/assets/team.jpg"
-                  alt="Professional Team Collaboration"
-                  className="w-full h-full object-cover grayscale-[20%]" />
+              {/* Single CTA — "Contact Us" */}
+              <div className="flex flex-wrap gap-[14px] mt-9">
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 py-[14px] font-accent text-[12px] tracking-[0.15em] uppercase transition-colors font-semibold hover:opacity-90"
+                  style={{ background: 'var(--soft)', color: 'var(--dark)' }}
+                  asChild
+                >
+                  <Link to={home.hero.ctaLink}>
+                    {home.hero.ctaLabel} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Section 4: We Make It Simple - Two Rows */}
-        <section className="py-20 bg-[#F0EDE6]">
+        {/* ═══════════════════════════════════════════════════════════════════
+            SECTION 2 — OUR SERVICES: NAVY BACKGROUND
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="pt-10 pb-24" style={{ background: 'var(--dark)' }}>
           <div className="max-w-[1400px] mx-auto px-8">
-            {/* Row 1 - Two Columns */}
+            {/* Section Header */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="grid md:grid-cols-[40%_60%] gap-16 mb-20">
+              className="mb-2">
 
-              {/* Left Column */}
-              <div>
-                <div className="text-[12px] tracking-[0.3em] text-[#1B2A4A] uppercase font-semibold mb-8">
-                  We Make It Simple
-                </div>
-                <p className="text-[18px] text-[#1B2A4A] leading-relaxed">
-                  Whether you're a homeowner, investor, or tenant, Tidal Realty Services designs a set of real estate solutions tailored to your needs and goals. We focus on creating value through proactive management, competitive pricing, and a personal touch that sets us apart.
-                </p>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-[40px] h-[2px]" style={{ background: 'var(--accent-warm)' }}></div>
+                <div className="w-[20px] h-[2px]" style={{ background: '#B8C9D6' }}></div>
               </div>
-
-              {/* Right Column - Service List */}
-              <div className="space-y-6">
-                <Link
-                  to="/services"
-                  className="block text-[28px] text-[#1B2A4A] hover:underline transition-all group">
-                  <span className="text-[#1B2A4A] mr-4">—</span>
-                  Flat Fee Listings for Sale
-                </Link>
-                <Link
-                  to="/services"
-                  className="block text-[28px] text-[#1B2A4A] hover:underline transition-all group">
-                  <span className="text-[#1B2A4A] mr-4">—</span>
-                  Flat Fee Listings for Rent
-                </Link>
-                <Link
-                  to="/services"
-                  className="block text-[28px] text-[#1B2A4A] hover:underline transition-all group">
-                  <span className="text-[#1B2A4A] mr-4">—</span>
-                  Asset Management
-                </Link>
-                <Link
-                  to="/services"
-                  className="block text-[28px] text-[#1B2A4A] hover:underline transition-all group">
-                  <span className="text-[#1B2A4A] mr-4">—</span>
-                  Property Consulting
-                </Link>
-              </div>
+              <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] text-white mb-4" style={{ fontWeight: 300 }}>
+                Our <em>{home.services.label.replace('Our ', '')}</em>
+              </h2>
+              <p className="font-sans text-[19px] leading-[1.7] max-w-[700px]" style={{ color: 'var(--soft)', opacity: 0.9 }}>
+                {home.services.description}
+              </p>
             </motion.div>
 
-            {/* Row 2 - Three Service Cards */}
+            {/* Three Cards — tight gap */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -296,110 +162,118 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="grid md:grid-cols-3 gap-8">
 
-              {/* Card 01 - Listings */}
-              <div className="bg-[#F0EDE6] border border-[#1B2A4A]/20 p-10 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
-                <div className="text-[14px] text-[#888888] mb-4">01</div>
-                <h3 className="text-[28px] text-[#1B2A4A] mb-4 font-medium">Listings</h3>
-                <p className="text-[14px] text-[#888888] leading-relaxed mb-8">
-                  Ready to sell or rent your property? We list it, market it, and manage the process — for a flat fee.
-                </p>
-                <Link
-                  to="/listings"
-                  className="text-[11px] tracking-[0.2em] uppercase text-[#1B2A4A] hover:opacity-60 transition-opacity inline-flex items-center">
-                  Explore Listings <ArrowRight className="ml-2 h-3 w-3" />
-                </Link>
-                {/* Decorative architectural line */}
-                <svg className="absolute bottom-4 right-4 opacity-[0.08]" width="80" height="80" viewBox="0 0 80 80">
-                  <rect x="10" y="10" width="60" height="60" stroke="#1B2A4A" strokeWidth="1" fill="none" />
-                  <line x1="10" y1="30" x2="70" y2="30" stroke="#1B2A4A" strokeWidth="0.5" />
-                  <line x1="10" y1="50" x2="70" y2="50" stroke="#1B2A4A" strokeWidth="0.5" />
-                </svg>
+              {home.services.cards.map((card) => (
+                <div key={card.title} className="p-10 border border-white/15 hover:border-white/30 transition-colors" style={{ background: 'color-mix(in srgb, var(--dark) 70%, black)' }}>
+                  <h3 className="font-heading text-[24px] text-white mb-4" style={{ fontWeight: 400 }}>{card.title}</h3>
+                  <p className="font-sans text-[16px] text-white/80 leading-[1.7] mb-8">
+                    {card.description}
+                  </p>
+                  <Link
+                    to={card.linkUrl}
+                    className="font-accent text-[12px] tracking-[0.15em] uppercase hover:opacity-60 transition-opacity inline-flex items-center"
+                    style={{ color: 'var(--soft)' }}>
+                    {card.linkText} <ArrowRight className="ml-2 h-3 w-3" />
+                  </Link>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            SECTION 3 — OUR MISSION: BEIGE BACKGROUND
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-[120px]" style={{ background: 'var(--bgHolder)' }}>
+          <div className="max-w-[1200px] mx-auto px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}>
+
+              {/* Label centered */}
+              <div className="flex flex-col items-center mb-12">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-[30px] h-[2px]" style={{ background: '#B8C9D6' }}></div>
+                  <div className="w-[60px] h-[2px]" style={{ background: 'var(--accent-warm)' }}></div>
+                  <div className="w-[30px] h-[2px]" style={{ background: '#B8C9D6' }}></div>
+                </div>
+                <div className="font-accent text-[16px] tracking-[0.3em] uppercase font-bold" style={{ color: 'var(--accent-warm)' }}>
+                  {home.mission.label}
+                </div>
               </div>
 
-              {/* Card 02 - Asset Management */}
-              <div className="bg-[#F0EDE6] border border-[#1B2A4A]/20 p-10 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
-                <div className="text-[14px] text-[#888888] mb-4">02</div>
-                <h3 className="text-[28px] text-[#1B2A4A] mb-4 font-medium">Asset Management</h3>
-                <p className="text-[14px] text-[#888888] leading-relaxed mb-8">
-                  Comprehensive property management at $75/month flat. No surprises, just results.
-                </p>
-                <Link
-                  to="/asset-management"
-                  className="text-[11px] tracking-[0.2em] uppercase text-[#1B2A4A] hover:opacity-60 transition-opacity inline-flex items-center">
-                  Learn More About Management <ArrowRight className="ml-2 h-3 w-3" />
-                </Link>
-                {/* Decorative architectural line */}
-                <svg className="absolute bottom-4 right-4 opacity-[0.08]" width="80" height="80" viewBox="0 0 80 80">
-                  <rect x="10" y="10" width="60" height="60" stroke="#1B2A4A" strokeWidth="1" fill="none" />
-                  <line x1="30" y1="10" x2="30" y2="70" stroke="#1B2A4A" strokeWidth="0.5" />
-                  <line x1="50" y1="10" x2="50" y2="70" stroke="#1B2A4A" strokeWidth="0.5" />
-                </svg>
-              </div>
+              {/* Two-column layout: large quote left, supporting text right */}
+              <div className="grid md:grid-cols-[1.2fr_1fr] gap-16 items-center">
+                {/* Left — Pull Quote with decorative border */}
+                <div className="border-l-[4px] pl-8" style={{ borderColor: 'var(--accent-warm)' }}>
+                  <p className="font-heading text-[34px] md:text-[44px] leading-[1.3] font-bold italic" style={{ color: 'var(--dark)' }}>
+                    {home.mission.quote}
+                  </p>
+                </div>
 
-              {/* Card 03 - Personal Service */}
-              <div className="bg-[#F0EDE6] border border-[#1B2A4A]/20 p-10 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
-                <div className="text-[14px] text-[#888888] mb-4">03</div>
-                <h3 className="text-[28px] text-[#1B2A4A] mb-4 font-medium">The Human Touch</h3>
-                <p className="text-[14px] text-[#888888] leading-relaxed mb-8">
-                  Smart technology, backed by people who actually pick up the phone.
-                </p>
-                <Link
-                  to="/contact"
-                  className="text-[11px] tracking-[0.2em] uppercase text-[#1B2A4A] hover:opacity-60 transition-opacity inline-flex items-center">
-                  Contact Us <ArrowRight className="ml-2 h-3 w-3" />
-                </Link>
-                {/* Decorative architectural line */}
-                <svg className="absolute bottom-4 right-4 opacity-[0.08]" width="80" height="80" viewBox="0 0 80 80">
-                  <circle cx="40" cy="40" r="30" stroke="#1B2A4A" strokeWidth="1" fill="none" />
-                  <circle cx="40" cy="40" r="20" stroke="#1B2A4A" strokeWidth="0.5" fill="none" />
-                </svg>
+                {/* Right — Supporting copy + CTA */}
+                <div>
+                  <p className="font-sans text-[17px] text-[#555555] leading-[1.8] mb-10">
+                    {home.mission.description}
+                  </p>
+
+                  <Button
+                    size="lg"
+                    className="px-8 py-6 font-accent text-[13px] tracking-[0.15em] uppercase rounded-sm transition-colors font-semibold hover:opacity-90"
+                    style={{ background: 'var(--dark)', color: 'var(--soft)' }}
+                    asChild>
+                    <Link to={home.mission.ctaLink}>
+                      {home.mission.ctaLabel} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Section 5: Closing CTA - Full-Bleed Photo with Floating Card */}
-        <section className="relative h-[600px] md:h-[700px] overflow-hidden">
-          {/* Background Photo with Overlay */}
-          <div className="absolute inset-0">
-            <img
-              src="/assets/home-hero.png"
-              alt="Modern Houston Architecture"
-              className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
+        {/* ═══════════════════════════════════════════════════════════════════
+            SECTION 4 — CLOSING CTA: NAVY BACKGROUND
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-[120px] relative overflow-hidden" style={{ background: 'var(--dark)' }}>
+          {/* Subtle decorative circle in background */}
+          <div className="absolute -right-[200px] top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5 pointer-events-none" />
+          <div className="absolute -left-[100px] -bottom-[100px] w-[300px] h-[300px] rounded-full border border-white/5 pointer-events-none" />
 
-          {/* Floating White Card - Right Side */}
-          <div className="relative h-full flex items-center justify-end px-8 md:px-16">
+          <div className="max-w-[800px] mx-auto px-8 text-center relative z-10">
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-12 md:p-16 shadow-2xl max-w-[520px] w-full">
+              transition={{ duration: 0.8 }}>
 
-              <h2 className="text-[36px] leading-[1.2] text-[#1B2A4A] mb-8">
-                We're here when it matters most.
+              <div className="font-accent text-[11px] tracking-[0.3em] uppercase mb-8" style={{ color: 'var(--soft)' }}>
+                {home.closingCta.label}
+              </div>
+
+              <h2 className="font-heading text-[44px] md:text-[56px] leading-[1.15] text-white mb-10" style={{ fontWeight: 400 }}>
+                {home.closingCta.title}
               </h2>
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-6">
-                We invite you to take a quick tour of our site and see how we can serve your real estate needs.
+
+              <p className="font-sans text-[18px] leading-[1.8] mb-12 max-w-[600px] mx-auto" style={{ color: 'var(--soft)', opacity: 0.9 }}>
+                {home.closingCta.description}
               </p>
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-10">
-                The world may be trending toward AI and automation — and we embrace smart technology. But when it comes to your real estate investments, we still believe in the power of personal service and the human touch. Give us a call.
-              </p>
+
+              {/* CTA */}
               <Button
-                variant="outline"
                 size="lg"
-                className="bg-white border border-[#1B2A4A]/20 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors"
+                className="px-10 py-6 font-accent text-[13px] tracking-[0.15em] uppercase rounded-sm transition-colors font-semibold hover:opacity-90"
+                style={{ background: 'var(--soft)', color: 'var(--dark)' }}
                 asChild>
-                <Link to="/contact">
-                  Let's Talk <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to={home.closingCta.ctaLink}>
+                  {home.closingCta.ctaLabel} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>
           </div>
         </section>
       </div>
-    </>);
-
+    </>
+  );
 }

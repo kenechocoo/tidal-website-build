@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Tidal Realty Services - Full-Service Real Estate Brokerage",
+    "description": "Full-service real estate brokerage specializing in property listings and professional property management. Exceptional service with flat-fee listings and competitive pricing."
+  },
+  "hero": {
+    "title": "Tidal Realty Services",
+    "subtitle": "A full-service brokerage specializing in property listings and management.",
+    "ctaLabel": "Contact Us",
+    "ctaLink": "/contact",
+    "image": "/assets/hero-house.jpg"
+  },
+  "services": {
+    "label": "Our Services",
+    "description": "Whether you are a homeowner or investor, Tidal Realty Services designs a set of real estate solutions tailored to your needs and goals. We focus on creating value through proactive management, competitive pricing, and a personal touch that sets us apart.",
+    "cards": [
+      {
+        "title": "List Your Property For Sale",
+        "description": "Ready to sell? We list it, market it, and manage the process for a flat fee.",
+        "linkText": "Learn More",
+        "linkUrl": "/services"
+      },
+      {
+        "title": "List Your Property for Rent",
+        "description": "Find quality tenants fast. We handle marketing, screening, and lease execution.",
+        "linkText": "Learn More",
+        "linkUrl": "/rentals"
+      },
+      {
+        "title": "Property Management",
+        "description": "Comprehensive property management at $99/month flat. No surprises, just results.",
+        "linkText": "Learn More",
+        "linkUrl": "/asset-management"
+      }
+    ]
+  },
+  "mission": {
+    "label": "Our Mission",
+    "quote": "\"Deliver an exceptional client experience while protecting and maximizing your bottom line.\"",
+    "description": "That commitment is why we offer innovative programs such as flat-fee property listings and highly competitive property management pricing, value that many of our clients consider unmatched.",
+    "ctaLabel": "Learn More",
+    "ctaLink": "/services"
+  },
+  "closingCta": {
+    "label": "Ready to Get Started?",
+    "title": "We're here when it matters most.",
+    "description": "The world may be trending toward AI and automation, and we embrace smart technology. But when it comes to your real estate investments, we still believe in the power of personal service and the human touch.",
+    "ctaLabel": "Contact Us",
+    "ctaLink": "/contact"
+  }
+}

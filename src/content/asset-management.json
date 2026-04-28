@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Property Management - Tidal Realty Services",
+    "description": "Professional property management in Houston. Flat $99/month fee. 20+ years experience managing single-family homes, condos, and apartment complexes."
+  },
+  "hero": {
+    "image": "/assets/home-hero-houston.png",
+    "titleLine1": "Your Investment.",
+    "titleLine2": "Our Responsibility.",
+    "description": "Single-family homes, condos, and apartment complexes, managed with your profits in mind and a flat-rate fee structure that keeps your bottom line intact.",
+    "buttonLabel": "Get Started",
+    "buttonLink": "/contact",
+    "stats": [
+      { "icon": "TrendingUp", "boldText": "20+", "text": "Years Houston Experience" },
+      { "icon": "Handshake", "boldText": "", "text": "Full-Service Property Management" }
+    ]
+  },
+  "whyTidal": {
+    "label": "Why Tidal",
+    "titleLine1": "We Don't Just Manage Properties.",
+    "titleLine2": "We Protect Your Profits.",
+    "columns": [
+      {
+        "icon": "DollarSign",
+        "title": "Flat Rate Promise",
+        "description": "No percentage-based fees eating your returns. Just $99/month. Predictable, transparent, always."
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Bottom Line Focus",
+        "description": "Every decision we make is filtered through one question: does this protect the owner's investment?"
+      },
+      {
+        "icon": "Handshake",
+        "title": "Personal Accountability",
+        "description": "Large enough to handle any complex. Accessible enough to answer the phone."
+      }
+    ]
+  },
+  "services": {
+    "label": "Full-Service Management",
+    "title": "We Do It All So You Don't Have To.",
+    "items": [
+      { "title": "Property Assessment", "description": "Inspect, advise, and prepare your property to attract quality tenants fast" },
+      { "title": "Marketing & Advertising", "description": "MLS, HAR, Greensheet, signage and data-driven rental pricing" },
+      { "title": "Tenant Screening", "description": "Full background checks on every applicant, no exceptions" },
+      { "title": "Rent Collection", "description": "Structured collection with clear due dates protecting your cash flow" },
+      { "title": "Eviction Management", "description": "Swift, professional action when needed, always on the owner's side" },
+      { "title": "HOA & Bill Payment", "description": "We handle mortgage, insurance, HOA and tax payments on your behalf" },
+      { "title": "Monthly Reporting", "description": "Clean income/expense reports monthly plus full year-end accounting" }
+    ]
+  },
+  "multiUnit": {
+    "image": "/assets/home-hero-houston.png",
+    "label": "Multi-Unit & Apartment Management",
+    "title": "From Boutique Condos to Large Communities. We've Seen It All.",
+    "description": "Our occupancy rates consistently exceed industry averages because we understand that your residents are your income. We attract the best tenants, keep them longer, and handle every aspect of daily operations without the 'slum lord' reputation that comes from cutting corners.",
+    "features": [
+      { "title": "Flat Rate Pricing", "description": "Predictable costs that never eat into your returns" },
+      { "title": "Expert Resources", "description": "CPAs, maintenance technicians, and legal support" },
+      { "title": "Resident Retention", "description": "Quality residents kept longer = stable, predictable income" }
+    ]
+  },
+  "cta": {
+    "titleLine1": "Ready to protect your",
+    "titleLine2": "investment?",
+    "description": "Let's talk about how we can manage your property and maximize your returns.",
+    "buttonLabel": "Let's Talk",
+    "buttonLink": "/contact"
+  }
+}

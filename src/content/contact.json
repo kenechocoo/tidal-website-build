@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "Contact Us - Tidal Realty Services",
+    "description": "Get in touch with Tidal Realty Services. Real people, real answers. Call us at 832-930-4663 or visit us at 2417 Truxillo Street, Houston TX 77004."
+  },
+  "hero": {
+    "image": "/assets/hero-house.jpg",
+    "label": "Get In Touch",
+    "title": "Contact Us",
+    "description": "Whether you're ready to list, looking for management services, or just have questions, we're here. Real people, real answers.",
+    "interestOptions": [
+      "List Property for Sale",
+      "List Property for Rent",
+      "Property Management",
+      "General Inquiry"
+    ],
+    "responseNote": "We typically respond within one business day.",
+    "successTitle": "Message Sent",
+    "successDescription": "Thank you for reaching out. We typically respond within one business day."
+  },
+  "otherWays": {
+    "label": "Other Ways to Reach Us",
+    "phoneNote": "Prefer to talk? So do we. Give us a call during business hours.",
+    "emailNote": "Send us a detailed message and we'll respond promptly.",
+    "addressNote": "Houston, Texas 77004. Located in the heart of the city."
+  },
+  "map": {
+    "label": "Find Us"
+  }
+}

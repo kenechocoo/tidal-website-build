@@ -5,6 +5,7 @@ import HomePage from './pages/index';
 // Lazy load components for code splitting (except HomePage for instant loading)
 const NotFoundPage = lazy(() => import('./pages/_404'));
 const ServicesPage = lazy(() => import('./pages/services'));
+const RentalsPage = lazy(() => import('./pages/rentals'));
 const ListingsPage = lazy(() => import('./pages/listings'));
 const AssetManagementPage = lazy(() => import('./pages/asset-management'));
 const TheNestPage = lazy(() => import('./pages/the-nest'));
@@ -18,6 +19,10 @@ export const routes: RouteObject[] = [
   {
     path: '/services',
     element: <ServicesPage />,
+  },
+  {
+    path: '/rentals',
+    element: <RentalsPage />,
   },
   {
     path: '/listings',
@@ -42,6 +47,6 @@ export const routes: RouteObject[] = [
 ];
 
 // Types for type-safe navigation
-export type Path = '/' | '/services' | '/listings' | '/asset-management' | '/the-nest' | '/contact';
+export type Path = '/' | '/services' | '/rentals' | '/listings' | '/asset-management' | '/the-nest' | '/contact';
 
 export type Params = Record<string, string | undefined>;

@@ -125,6 +125,13 @@ export default defineConfig(({ mode }) => ({
 	build: {
 		rollupOptions: {
 			// No external dependencies - bundle everything
+			output: {
+				// Prevent crossorigin attribute issues on static hosting
+			},
 		},
+		modulePreload: {
+			polyfill: false,
+		},
+		cssCodeSplit: false,
 	},
 }));

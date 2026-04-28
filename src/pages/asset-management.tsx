@@ -1,32 +1,36 @@
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, DollarSign, TrendingUp, Handshake, Calendar, Home, Wallet } from 'lucide-react';
+import { ArrowRight, DollarSign, TrendingUp, Handshake } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import assetMgmt from '@/content/asset-management.json';
+
+const iconMap = { DollarSign, TrendingUp, Handshake } as const;
+type IconName = keyof typeof iconMap;
 
 /**
  * Asset Management page - Tidal Realty Services
  *
- * Authoritative, wealth-protective design
- * Deep Navy (#1B2A4A), Gold/Amber (#C9A84C), White + Cream (#F0EDE6)
- * Heavy typography, structured layouts, data-forward
+ * Color tokens: --dark, --soft, --bgHolder, --accent-warm
+ * Pale blue accent: #D6DEE6
+ * Fonts: font-heading (Tiempos), font-sans (Founders Grotesk), font-accent (Manrope)
  */
 export default function AssetManagementPage() {
   return (
     <>
-      <title>Asset Management - Tidal Realty Services</title>
-      <meta name="description" content="Professional property management in Houston. Flat $75/month fee. 20+ years experience managing single-family homes, condos, and apartment complexes." />
-      
-      <div className="bg-white">
+      <title>{assetMgmt.meta.title}</title>
+      <meta name="description" content={assetMgmt.meta.description} />
+
+      <div style={{ background: 'var(--bgHolder)' }}>
         {/* Section 1: Full-Width Cinematic Hero */}
         <section className="relative h-[90vh] overflow-hidden">
           {/* Background Photo */}
           <div className="absolute inset-0">
             <img
-              src="/airo-assets/images/pages/asset-management/hero"
+              src={assetMgmt.hero.image}
               alt="Houston Residential Property"
               className="w-full h-full object-cover" />
-            {/* Strong Navy Gradient Overlay - Left Darker */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1B2A4A]/80 via-[#1B2A4A]/50 to-transparent"></div>
+            {/* Navy Gradient Overlay */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, color-mix(in srgb, var(--dark) 80%, transparent), color-mix(in srgb, var(--dark) 50%, transparent), transparent)' }}></div>
           </div>
 
           {/* Hero Content - Left Third */}
@@ -38,74 +42,54 @@ export default function AssetManagementPage() {
                 transition={{ duration: 0.8 }}
                 className="max-w-[600px]">
 
-                {/* Gold Label */}
-                <div className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-semibold mb-6">
-                  Houston Property Management · Est. 2002
-                </div>
-
                 {/* Massive Bold Headline */}
-                <h1 className="text-[60px] md:text-[70px] leading-[1.1] text-white font-bold mb-8">
-                  Your Investment.<br />Our Responsibility.
+                <h1 className="font-heading text-[60px] md:text-[70px] leading-[1.1] text-white font-bold mb-8">
+                  {assetMgmt.hero.titleLine1}<br />{assetMgmt.hero.titleLine2}
                 </h1>
 
                 {/* Subtext */}
-                <p className="text-[17px] text-white/90 leading-relaxed mb-10 max-w-[420px]">
-                  Single-family homes, condos, and apartment complexes — managed with your profits in mind and a flat-rate fee structure that keeps your bottom line intact.
+                <p className="font-sans text-[17px] text-white/90 leading-relaxed mb-10 max-w-[420px]">
+                  {assetMgmt.hero.description}
                 </p>
 
-                {/* Two Buttons */}
-                <div className="flex flex-wrap gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-[#C9A84C] text-[#1B2A4A] hover:bg-[#B89840] px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors font-semibold"
-                    asChild>
-                    <Link to="/contact">
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#1B2A4A] px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors"
-                    asChild>
-                    <Link to="#pricing">
-                      View Pricing
-                    </Link>
-                  </Button>
-                </div>
+                {/* CTA Button */}
+                <Button
+                  size="lg"
+                  className="text-white px-8 py-6 font-accent text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors font-semibold hover:opacity-90"
+                  style={{ background: 'var(--accent-warm)' }}
+                  asChild>
+                  <Link to={assetMgmt.hero.buttonLink}>
+                    {assetMgmt.hero.buttonLabel} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </motion.div>
             </div>
           </div>
 
           {/* Bottom Stat Ticker Bar */}
-          <div className="absolute bottom-0 left-0 right-0 bg-[#1B2A4A]/80 backdrop-blur-sm py-6">
+          <div className="absolute bottom-0 left-0 right-0 backdrop-blur-sm py-6" style={{ background: 'color-mix(in srgb, var(--dark) 80%, transparent)' }}>
             <div className="max-w-[1400px] mx-auto px-8">
-              <div className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-16 text-white">
-                <div className="flex items-center gap-3">
-                  <Calendar className="h-5 w-5 text-[#C9A84C]" />
-                  <span className="text-[14px]">
-                    <span className="font-semibold">Est. 2002</span> · 20+ Years Houston Experience
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Home className="h-5 w-5 text-[#C9A84C]" />
-                  <span className="text-[14px]">
-                    <span className="font-semibold">23+</span> · Units Managed
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Wallet className="h-5 w-5 text-[#C9A84C]" />
-                  <span className="text-[14px]">
-                    <span className="font-semibold">$75</span> · Flat Management Rate
-                  </span>
-                </div>
+              <div className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-16 text-white font-sans">
+                {assetMgmt.hero.stats.map((stat, i) => {
+                  const Icon = iconMap[stat.icon as IconName];
+                  return (
+                    <div key={i} className="flex items-center gap-3">
+                      {Icon && <Icon className="h-5 w-5" style={{ color: 'var(--soft)' }} />}
+                      <span className="text-[14px]">
+                        {stat.boldText && <span className="font-semibold">{stat.boldText}</span>}
+                        {stat.boldText && ' '}
+                        {stat.text}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Section 2: The Tidal Difference */}
-        <section className="py-24 bg-white">
+        {/* Section 2: The Tidal Difference — Pale Blue Background */}
+        <section className="py-24" style={{ background: '#D6DEE6' }}>
           <div className="max-w-[1200px] mx-auto px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -114,66 +98,44 @@ export default function AssetManagementPage() {
               transition={{ duration: 0.8 }}
               className="text-center">
 
-              {/* Gold Rule + Label */}
+              {/* Accent-Warm Rule + Label */}
               <div className="flex flex-col items-center mb-6">
-                <div className="w-[60px] h-[2px] bg-[#C9A84C] mb-4"></div>
-                <div className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-semibold">
-                  Why Tidal
+                <div className="w-[60px] h-[2px] mb-4" style={{ background: 'var(--accent-warm)' }}></div>
+                <div className="font-accent text-[12px] tracking-[0.3em] uppercase font-semibold" style={{ color: 'var(--accent-warm)' }}>
+                  {assetMgmt.whyTidal.label}
                 </div>
               </div>
 
               {/* Large Centered Headline */}
-              <h2 className="text-[38px] md:text-[44px] leading-[1.2] text-[#1B2A4A] font-medium mb-16 max-w-[800px] mx-auto">
-                We Don't Just Manage Properties.<br />We Protect Your Profits.
+              <h2 className="font-heading text-[38px] md:text-[44px] leading-[1.2] font-medium mb-16 max-w-[800px] mx-auto" style={{ color: 'var(--dark)' }}>
+                {assetMgmt.whyTidal.titleLine1}<br />{assetMgmt.whyTidal.titleLine2}
               </h2>
 
-              {/* Three Columns - No Borders */}
+              {/* Three Columns */}
               <div className="grid md:grid-cols-3 gap-12 mt-16">
-                {/* Column 1 */}
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-6">
-                    <DollarSign className="h-12 w-12 text-[#C9A84C] stroke-[1.5]" />
-                  </div>
-                  <h3 className="text-[22px] text-[#1B2A4A] font-semibold mb-4">
-                    Flat Rate Promise
-                  </h3>
-                  <p className="text-[15px] text-[#666666] leading-relaxed">
-                    No percentage-based fees eating your returns. Just $75/month — predictable, transparent, always.
-                  </p>
-                </div>
-
-                {/* Column 2 */}
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-6">
-                    <TrendingUp className="h-12 w-12 text-[#C9A84C] stroke-[1.5]" />
-                  </div>
-                  <h3 className="text-[22px] text-[#1B2A4A] font-semibold mb-4">
-                    Bottom Line Focus
-                  </h3>
-                  <p className="text-[15px] text-[#666666] leading-relaxed">
-                    Every decision we make is filtered through one question: does this protect the owner's investment?
-                  </p>
-                </div>
-
-                {/* Column 3 */}
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-6">
-                    <Handshake className="h-12 w-12 text-[#C9A84C] stroke-[1.5]" />
-                  </div>
-                  <h3 className="text-[22px] text-[#1B2A4A] font-semibold mb-4">
-                    Personal Accountability
-                  </h3>
-                  <p className="text-[15px] text-[#666666] leading-relaxed">
-                    Large enough to handle any complex. Accessible enough to answer the phone.
-                  </p>
-                </div>
+                {assetMgmt.whyTidal.columns.map((col) => {
+                  const Icon = iconMap[col.icon as IconName];
+                  return (
+                    <div key={col.title} className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ background: 'white' }}>
+                        {Icon && <Icon className="h-8 w-8 stroke-[1.5]" style={{ color: 'var(--accent-warm)' }} />}
+                      </div>
+                      <h3 className="font-heading text-[22px] font-semibold mb-4" style={{ color: 'var(--dark)' }}>
+                        {col.title}
+                      </h3>
+                      <p className="font-sans text-[15px] leading-relaxed" style={{ color: 'var(--dark)', opacity: 0.6 }}>
+                        {col.description}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
         </section>
 
         {/* Section 3: Services - Professional Dossier */}
-        <section className="py-20 bg-[#1B2A4A]">
+        <section className="py-20" style={{ background: 'var(--dark)' }}>
           <div className="max-w-[1400px] mx-auto px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -183,92 +145,27 @@ export default function AssetManagementPage() {
 
               {/* Header */}
               <div className="mb-12">
-                <div className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-semibold mb-4">
-                  Full-Service Management
+                <div className="font-accent text-[12px] tracking-[0.3em] uppercase font-semibold mb-4" style={{ color: 'var(--soft)' }}>
+                  {assetMgmt.services.label}
                 </div>
-                <h2 className="text-[36px] md:text-[40px] text-white font-medium">
-                  We Do It All — So You Don't Have To.
+                <h2 className="font-heading text-[36px] md:text-[40px] text-white font-medium">
+                  {assetMgmt.services.title}
                 </h2>
               </div>
 
               {/* Two-Column Service List */}
               <div className="space-y-0">
-                {/* Service Row 1 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">Property Assessment</h3>
+                {assetMgmt.services.items.map((service) => (
+                  <div key={service.title} className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[20px]" style={{ color: 'var(--soft)' }}>&#x2022;</span>
+                      <h3 className="font-heading text-[20px] text-white font-medium">{service.title}</h3>
+                    </div>
+                    <p className="font-sans text-[15px] text-white/70 md:text-right">
+                      {service.description}
+                    </p>
                   </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    Inspect, advise, and prepare your property to attract quality tenants fast
-                  </p>
-                </div>
-
-                {/* Service Row 2 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">Marketing & Advertising</h3>
-                  </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    MLS, HAR, Greensheet, signage and data-driven rental pricing
-                  </p>
-                </div>
-
-                {/* Service Row 3 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">Tenant Screening</h3>
-                  </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    Full background checks on every applicant, no exceptions
-                  </p>
-                </div>
-
-                {/* Service Row 4 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">Rent Collection</h3>
-                  </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    Structured collection with clear due dates protecting your cash flow
-                  </p>
-                </div>
-
-                {/* Service Row 5 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">Eviction Management</h3>
-                  </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    Swift, professional action when needed — always on the owner's side
-                  </p>
-                </div>
-
-                {/* Service Row 6 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">HOA & Bill Payment</h3>
-                  </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    We handle mortgage, insurance, HOA and tax payments on your behalf
-                  </p>
-                </div>
-
-                {/* Service Row 7 */}
-                <div className="grid md:grid-cols-2 gap-8 py-6 border-b border-white/15">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C9A84C] text-[20px]">—</span>
-                    <h3 className="text-[20px] text-white font-medium">Monthly Reporting</h3>
-                  </div>
-                  <p className="text-[15px] text-white/70 md:text-right">
-                    Clean income/expense reports monthly plus full year-end accounting
-                  </p>
-                </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -279,13 +176,13 @@ export default function AssetManagementPage() {
           {/* Left - Photo (55%) */}
           <div className="w-full md:w-[55%] h-[400px] md:h-auto">
             <img
-              src="/airo-assets/images/pages/asset-management/hero"
+              src={assetMgmt.multiUnit.image}
               alt="Houston Apartment Complex"
               className="w-full h-full object-cover" />
           </div>
 
-          {/* Right - Cream Panel (45%) */}
-          <div className="w-full md:w-[45%] bg-[#F0EDE6] flex items-center p-12 md:p-16">
+          {/* Right - Pale Blue Panel (45%) */}
+          <div className="w-full md:w-[45%] flex items-center p-12 md:p-16" style={{ background: '#E8ECF2' }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -293,87 +190,59 @@ export default function AssetManagementPage() {
               transition={{ duration: 0.8 }}
               className="max-w-[500px]">
 
-              {/* Gold Label */}
-              <div className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-semibold mb-6">
-                Multi-Unit & Apartment Management
+              {/* Accent-Warm Label */}
+              <div className="font-accent text-[12px] tracking-[0.3em] uppercase font-semibold mb-6" style={{ color: 'var(--accent-warm)' }}>
+                {assetMgmt.multiUnit.label}
               </div>
 
               {/* Navy Headline */}
-              <h2 className="text-[30px] md:text-[34px] text-[#1B2A4A] font-medium leading-[1.2] mb-8">
-                From Boutique Condos to Large Communities — We've Seen It All.
+              <h2 className="font-heading text-[30px] md:text-[34px] font-medium leading-[1.2] mb-8" style={{ color: 'var(--dark)' }}>
+                {assetMgmt.multiUnit.title}
               </h2>
 
               {/* Body Text */}
-              <p className="text-[16px] text-[#444444] leading-relaxed mb-10">
-                Our occupancy rates consistently exceed industry averages because we understand that your residents are your income. We attract the best tenants, keep them longer, and handle every aspect of daily operations without the 'slum lord' reputation that comes from cutting corners.
+              <p className="font-sans text-[16px] leading-relaxed mb-10" style={{ color: 'var(--dark)', opacity: 0.65 }}>
+                {assetMgmt.multiUnit.description}
               </p>
 
-              {/* Three Feature Rows with Gold Accent Bar */}
+              {/* Three Feature Rows with Accent-Warm Bar */}
               <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-1 h-[30px] bg-[#C9A84C] flex-shrink-0"></div>
-                  <div>
-                    <h3 className="text-[18px] text-[#1B2A4A] font-semibold mb-1">Flat Rate Pricing</h3>
-                    <p className="text-[14px] text-[#666666]">Predictable costs that never eat into your returns</p>
+                {assetMgmt.multiUnit.features.map((feature) => (
+                  <div key={feature.title} className="flex gap-4">
+                    <div className="w-1 h-[30px] flex-shrink-0" style={{ background: 'var(--accent-warm)' }}></div>
+                    <div>
+                      <h3 className="font-heading text-[18px] font-semibold mb-1" style={{ color: 'var(--dark)' }}>{feature.title}</h3>
+                      <p className="font-sans text-[14px]" style={{ color: 'var(--dark)', opacity: 0.55 }}>{feature.description}</p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-1 h-[30px] bg-[#C9A84C] flex-shrink-0"></div>
-                  <div>
-                    <h3 className="text-[18px] text-[#1B2A4A] font-semibold mb-1">Expert Resources</h3>
-                    <p className="text-[14px] text-[#666666]">CPAs, maintenance technicians, and legal support</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-1 h-[30px] bg-[#C9A84C] flex-shrink-0"></div>
-                  <div>
-                    <h3 className="text-[18px] text-[#1B2A4A] font-semibold mb-1">Resident Retention</h3>
-                    <p className="text-[14px] text-[#666666]">Quality residents kept longer = stable, predictable income</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Section 5: Closing CTA - Locked Template */}
-        <section className="relative h-[600px] md:h-[700px] overflow-hidden">
-          {/* Background Photo with Overlay */}
-          <div className="absolute inset-0">
-            <img
-              src="/assets/home-hero.png"
-              alt="Modern Houston Architecture"
-              className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
-
-          {/* Floating White Card - Right Side */}
-          <div className="relative h-full flex items-center justify-end px-8 md:px-16">
+        {/* Section 5: CTA */}
+        <section className="py-24" style={{ background: 'var(--bgHolder)' }}>
+          <div className="max-w-[600px] mx-auto px-8 text-center">
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-12 md:p-16 shadow-2xl max-w-[520px] w-full">
+              transition={{ duration: 0.6 }}>
 
-              <h2 className="text-[36px] leading-[1.2] text-[#1B2A4A] mb-8">
-                We're here when it matters most.
+              <h2 className="font-heading text-[36px] md:text-[44px] leading-[1.1] mb-6" style={{ color: 'var(--dark)', fontWeight: 300 }}>
+                {assetMgmt.cta.titleLine1} <em>{assetMgmt.cta.titleLine2}</em>
               </h2>
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-6">
-                We invite you to take a quick tour of our site and see how we can serve your real estate needs.
-              </p>
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-10">
-                The world may be trending toward AI and automation — and we embrace smart technology. But when it comes to your real estate investments, we still believe in the power of personal service and the human touch. Give us a call.
+              <p className="font-sans text-[18px] leading-[1.7] mb-10" style={{ color: 'var(--dark)', opacity: 0.65 }}>
+                {assetMgmt.cta.description}
               </p>
               <Button
-                variant="outline"
                 size="lg"
-                className="bg-white border border-[#1B2A4A]/20 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors"
+                className="px-10 py-6 font-accent text-[13px] tracking-[0.15em] uppercase rounded-full transition-colors font-semibold hover:opacity-90"
+                style={{ background: 'var(--dark)', color: 'var(--soft)' }}
                 asChild>
-                <Link to="/contact">
-                  Let's Talk <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to={assetMgmt.cta.buttonLink}>
+                  {assetMgmt.cta.buttonLabel} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>

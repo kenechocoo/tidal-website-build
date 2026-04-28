@@ -1,0 +1,16 @@
+{
+  "businessName": "Tidal Realty Services",
+  "tagline": "Full-Service Real Estate Brokerage",
+  "phone": "832-930-4663",
+  "email": "info@tidalpm.com",
+  "address": {
+    "line1": "2417 Truxillo Street",
+    "line2": "Houston, TX 77004"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/tidal-pm/",
+    "instagram": "https://www.instagram.com/tidalrealtyservices/",
+    "x": "https://x.com/tidal_realty"
+  },
+  "theNestUrl": "https://www.4714wardstreet.com/"
+}

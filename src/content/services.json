@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "Flat Fee Listings - Tidal Realty Services",
+    "description": "Real estate services priced honestly. Flat-fee listings for sale. No percentage-based commissions eating your returns."
+  },
+  "hero": {
+    "titleLine1": "Sell your home",
+    "titleLine2": "for a flat fee",
+    "description": "Traditional agents charge thousands in commission before you see a dime. At Tidal Realty Services, we offer a full-service MLS listing for just $999. That means professional support from listing to closing, without the percentage-based fees eating your returns.",
+    "highlightText": "full-service MLS listing for just $999",
+    "priceCard": {
+      "label": "Flat Fee Listing",
+      "price": "$999",
+      "subtitle": "Full-service MLS listing. That's it.",
+      "features": [
+        "MLS & HAR exposure",
+        "Pricing strategy",
+        "Showing coordination",
+        "Contract to close"
+      ]
+    }
+  },
+  "process": {
+    "title": "What you get",
+    "description": "When you list with Tidal Realty Services, you receive professional support throughout the entire sales process. Our goal is simple: maximize exposure while protecting your bottom line.",
+    "highlightText": "professional support",
+    "steps": [
+      {
+        "number": "01",
+        "title": "MLS Listing & Syndication",
+        "description": "Your property gets listed on MLS and broadly syndicated to major real estate websites, reaching the maximum number of potential buyers."
+      },
+      {
+        "number": "02",
+        "title": "Pricing Strategy & Market Analysis",
+        "description": "We analyze comparable properties, local trends, and market conditions to position your home at the optimal price point."
+      },
+      {
+        "number": "03",
+        "title": "Showing Coordination",
+        "description": "We manage all buyer inquiries, schedule showings, and handle communication so you don't have to."
+      },
+      {
+        "number": "04",
+        "title": "Contract to Close",
+        "description": "From offer review and negotiation to closing coordination, we handle every detail of the transaction."
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Compare our fees",
+    "description": "Many of our clients are experienced real estate investors who understand that every percentage point matters. Here's how our flat fee model compares to the traditional approach.",
+    "traditional": {
+      "title": "The Traditional Model",
+      "description": "Most agents charge 5-6% total commission, split between the listing and buyer's agent.",
+      "exampleLabel": "Example: $300,000 Home Sale",
+      "lines": [
+        { "label": "6% Total Commission:", "value": "$18,000" },
+        { "label": "Listing Agent Portion (3%):", "value": "$9,000" }
+      ],
+      "summary": "That's $9,000 paid just to list your property."
+    },
+    "tidal": {
+      "title": "The Tidal Model",
+      "description": "We offer a flat fee MLS listing for just $999. Same service, fraction of the cost.",
+      "exampleLabel": "Same $300,000 Home Sale:",
+      "lines": [
+        { "label": "Flat Listing Fee:", "value": "$999" },
+        { "label": "Buyer's Agent Commission:", "value": "typically 2-3%" }
+      ],
+      "summary": "You save $8,001+"
+    },
+    "savingsTableTitle": "Your Potential Savings",
+    "savingsRows": [
+      { "salePrice": "$250,000", "traditional": "$7,500", "tidal": "$999", "savings": "$6,501" },
+      { "salePrice": "$300,000", "traditional": "$9,000", "tidal": "$999", "savings": "$8,001" },
+      { "salePrice": "$400,000", "traditional": "$12,000", "tidal": "$999", "savings": "$11,001" },
+      { "salePrice": "$500,000", "traditional": "$15,000", "tidal": "$999", "savings": "$14,001" }
+    ]
+  },
+  "cta": {
+    "titleLine1": "Ready to",
+    "titleLine2": "list?",
+    "description": "Let's get started. Reach out and we'll walk you through the process.",
+    "buttonLabel": "Contact Us",
+    "buttonLink": "/contact"
+  }
+}

@@ -10,70 +10,97 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useState, type FormEvent } from 'react';
+import { useState, useRef, type FormEvent } from 'react';
+import contact from '@/content/contact.json';
+import settings from '@/content/settings.json';
 
 /**
  * Contact page - Tidal Realty Services
  *
- * Warm, human, effortless
- * Remove every possible reason not to reach out
- * Light, open, personal
+ * Color tokens: --dark, --soft, --bgHolder
+ * Fonts: font-heading (Tiempos), font-sans (Founders Grotesk), font-accent (Manrope)
  */
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
+    propertyAddress: '',
     interest: '',
     message: '',
   });
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Form submission logic here
-    console.log('Form submitted:', formData);
+    setSubmitting(true);
+    try {
+      const submission = new FormData(e.currentTarget);
+      submission.append('access_key', '2939e2b8-059e-442c-ad94-3b050a44129e');
+      submission.append(
+        'subject',
+        `New Contact Form: ${formData.fullName} — ${formData.interest || 'General Inquiry'}`,
+      );
+      submission.append('from_name', 'Tidal Realty Services Website');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: submission,
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || `Submit failed: ${response.status}`);
+      }
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('Something went wrong. Please try again or email us at info@tidalpm.com.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <>
-      <title>Contact - Tidal Realty Services</title>
-      <meta name="description" content="Get in touch with Tidal Realty Services. Real people, real answers. Call us at 832-930-4663 or visit us at 2417 Truxillo Street, Houston TX 77004." />
-      
-      <div className="bg-white">
+      <title>{contact.meta.title}</title>
+      <meta name="description" content={contact.meta.description} />
+
+      <div style={{ background: 'var(--bgHolder)' }}>
         {/* Section 1: Hero + Contact Form - Split Screen */}
         <section className="min-h-screen flex flex-col md:flex-row">
           {/* Left Half - Photo with Contact Info Overlay */}
           <div className="w-full md:w-1/2 h-[400px] md:h-auto relative">
             <img
-              src="/assets/home-hero.png"
-              alt="Houston Skyline"
+              src={contact.hero.image}
+              alt="Houston Property"
               className="w-full h-full object-cover" />
-            
-            {/* Semi-transparent Navy Gradient Overlay - Bottom 30% */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1B2A4A]/90 to-transparent py-12 px-8">
-              <div className="max-w-[500px] mx-auto space-y-4">
+
+            {/* Semi-transparent Gradient Overlay - Bottom 30% */}
+            <div className="absolute bottom-0 left-0 right-0 py-12 px-8" style={{ background: 'linear-gradient(to top, color-mix(in srgb, var(--dark) 90%, transparent) 0%, transparent 100%)' }}>
+              <div className="max-w-[500px] mx-auto space-y-4 font-sans">
                 {/* Address */}
                 <div className="flex items-start gap-4">
-                  <MapPin className="h-5 w-5 text-[#C9A84C] flex-shrink-0 mt-1" />
+                  <MapPin className="h-5 w-5 flex-shrink-0 mt-1" style={{ color: 'var(--soft)' }} />
                   <p className="text-[15px] text-white">
-                    2417 Truxillo Street<br />Houston, TX 77004
+                    {settings.address.line1}<br />{settings.address.line2}
                   </p>
                 </div>
 
                 {/* Phone */}
                 <div className="flex items-center gap-4">
-                  <Phone className="h-5 w-5 text-[#C9A84C] flex-shrink-0" />
-                  <a href="tel:832-930-4663" className="text-[15px] text-white hover:text-[#C9A84C] transition-colors">
-                    832-930-4663
+                  <Phone className="h-5 w-5 flex-shrink-0" style={{ color: 'var(--soft)' }} />
+                  <a href={`tel:${settings.phone}`} className="text-[15px] text-white hover:opacity-70 transition-colors">
+                    {settings.phone}
                   </a>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-center gap-4">
-                  <Mail className="h-5 w-5 text-[#C9A84C] flex-shrink-0" />
-                  <a href="mailto:info@tidalpm.com" className="text-[15px] text-white hover:text-[#C9A84C] transition-colors">
-                    info@tidalpm.com
+                  <Mail className="h-5 w-5 flex-shrink-0" style={{ color: 'var(--soft)' }} />
+                  <a href={`mailto:${settings.email}`} className="text-[15px] text-white hover:opacity-70 transition-colors">
+                    {settings.email}
                   </a>
                 </div>
               </div>
@@ -81,7 +108,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Half - Contact Form */}
-          <div className="w-full md:w-1/2 bg-white flex items-center p-8 md:p-16">
+          <div className="w-full md:w-1/2 flex items-center p-8 md:p-16" style={{ background: '#f5f2ec' }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -89,103 +116,144 @@ export default function ContactPage() {
               className="max-w-[550px] w-full mx-auto">
 
               {/* Label */}
-              <div className="text-[12px] tracking-[0.3em] text-[#1B2A4A] uppercase font-semibold mb-6">
-                Get In Touch
+              <div className="font-accent text-[12px] tracking-[0.3em] uppercase font-semibold mb-6" style={{ color: 'var(--accent-warm)' }}>
+                {contact.hero.label}
               </div>
 
               {/* Headline */}
-              <h1 className="text-[34px] md:text-[38px] text-[#1B2A4A] font-medium leading-[1.2] mb-6">
-                Let's Talk Real Estate.
+              <h1 className="font-heading text-[34px] md:text-[38px] font-medium leading-[1.2] mb-6" style={{ color: 'var(--dark)' }}>
+                {contact.hero.title}
               </h1>
 
               {/* Subtext */}
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-10">
-                Whether you're ready to list, looking for management services, or just have questions — we're here. Real people, real answers.
+              <p className="font-sans text-[16px] leading-relaxed mb-10" style={{ color: 'var(--dark)', opacity: 0.6 }}>
+                {contact.hero.description}
               </p>
 
               {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Full Name */}
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="text-[48px] mb-4">✓</div>
+                  <h2 className="font-heading text-[28px] font-medium mb-4" style={{ color: 'var(--dark)' }}>
+                    {contact.hero.successTitle}
+                  </h2>
+                  <p className="font-sans text-[16px] leading-relaxed" style={{ color: 'var(--dark)', opacity: 0.6 }}>
+                    {contact.hero.successDescription}
+                  </p>
+                </div>
+              ) : (
+              <form
+                ref={formRef}
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6 font-sans"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field" />
+                  </label>
+                </p>
+
                 <div>
                   <Input
                     type="text"
+                    name="Full Name"
                     placeholder="Full Name"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="border-0 border-b border-[#1B2A4A]/20 rounded-none px-0 py-3 text-[15px] focus:border-[#C9A84C] focus-visible:ring-0"
+                    className="border-0 border-b rounded-none px-0 py-3 text-[15px] focus-visible:ring-0 bg-transparent"
+                    style={{ borderColor: 'color-mix(in srgb, var(--dark) 20%, transparent)' }}
                     required
                   />
                 </div>
 
-                {/* Email Address */}
                 <div>
                   <Input
                     type="email"
+                    name="Email"
                     placeholder="Email Address"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="border-0 border-b border-[#1B2A4A]/20 rounded-none px-0 py-3 text-[15px] focus:border-[#C9A84C] focus-visible:ring-0"
+                    className="border-0 border-b rounded-none px-0 py-3 text-[15px] focus-visible:ring-0 bg-transparent"
+                    style={{ borderColor: 'color-mix(in srgb, var(--dark) 20%, transparent)' }}
                     required
                   />
                 </div>
 
-                {/* Phone Number */}
                 <div>
                   <Input
                     type="tel"
+                    name="Phone"
                     placeholder="Phone Number"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="border-0 border-b border-[#1B2A4A]/20 rounded-none px-0 py-3 text-[15px] focus:border-[#C9A84C] focus-visible:ring-0"
+                    className="border-0 border-b rounded-none px-0 py-3 text-[15px] focus-visible:ring-0 bg-transparent"
+                    style={{ borderColor: 'color-mix(in srgb, var(--dark) 20%, transparent)' }}
                     required
                   />
                 </div>
 
-                {/* I'm interested in */}
                 <div>
                   <Select onValueChange={(value) => setFormData({ ...formData, interest: value })}>
-                    <SelectTrigger className="border-0 border-b border-[#1B2A4A]/20 rounded-none px-0 py-3 text-[15px] focus:border-[#C9A84C] focus:ring-0">
+                    <SelectTrigger className="border-0 border-b rounded-none px-0 py-3 text-[15px] focus:ring-0 bg-transparent" style={{ borderColor: 'color-mix(in srgb, var(--dark) 20%, transparent)' }}>
                       <SelectValue placeholder="I'm interested in..." />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="flat-fee-sale">Flat Fee Listing for Sale</SelectItem>
-                      <SelectItem value="flat-fee-rent">Flat Fee Listing for Rent</SelectItem>
-                      <SelectItem value="property-management">Property Management</SelectItem>
-                      <SelectItem value="general">General Inquiry</SelectItem>
+                      {contact.hero.interestOptions.map((opt) => (
+                        <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
+                  <input type="hidden" name="Interested In" value={formData.interest} />
                 </div>
 
-                {/* Message */}
                 <div>
-                  <Textarea
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="border-0 border-b border-[#1B2A4A]/20 rounded-none px-0 py-3 text-[15px] min-h-[100px] resize-none focus:border-[#C9A84C] focus-visible:ring-0"
-                    required
+                  <Input
+                    type="text"
+                    name="Property Address"
+                    placeholder="Property Address (address of the property we'd be servicing)"
+                    value={formData.propertyAddress}
+                    onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })}
+                    className="border-0 border-b rounded-none px-0 py-3 text-[15px] focus-visible:ring-0 bg-transparent"
+                    style={{ borderColor: 'color-mix(in srgb, var(--dark) 20%, transparent)' }}
                   />
                 </div>
 
-                {/* Submit Button */}
+                <div>
+                  <Textarea
+                    name="Message"
+                    placeholder="Anything else you'd like us to know?"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="border-0 border-b rounded-none px-0 py-3 text-[15px] min-h-[100px] resize-none focus-visible:ring-0 bg-transparent"
+                    style={{ borderColor: 'color-mix(in srgb, var(--dark) 20%, transparent)' }}
+                  />
+                </div>
+
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-[#1B2A4A] text-white hover:bg-[#1B2A4A]/90 px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors font-semibold">
-                  Send Message <ArrowRight className="ml-2 h-4 w-4" />
+                  disabled={submitting}
+                  className="w-full text-white px-8 py-6 font-accent text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors font-semibold hover:opacity-90"
+                  style={{ background: 'var(--dark)' }}>
+                  {submitting ? 'Sending...' : 'Send Message'} {!submitting && <ArrowRight className="ml-2 h-4 w-4" />}
                 </Button>
 
-                {/* Micro-text */}
-                <p className="text-[12px] text-[#888888] text-center">
-                  We typically respond within one business day.
+                <p className="font-sans text-[12px] text-center" style={{ color: 'var(--dark)', opacity: 0.45 }}>
+                  {contact.hero.responseNote}
                 </p>
               </form>
+              )}
             </motion.div>
           </div>
         </section>
 
         {/* Section 2: Other Ways to Reach Us */}
-        <section className="py-20 bg-[#F0EDE6]">
+        <section className="py-20" style={{ background: 'var(--bgHolder)' }}>
           <div className="max-w-[1200px] mx-auto px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -193,51 +261,46 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}>
 
-              {/* Centered Label */}
               <div className="text-center mb-16">
-                <div className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-semibold">
-                  Other Ways to Reach Us
+                <div className="font-accent text-[12px] tracking-[0.3em] uppercase font-semibold" style={{ color: 'var(--accent-warm)' }}>
+                  {contact.otherWays.label}
                 </div>
               </div>
 
-              {/* Three Columns */}
               <div className="grid md:grid-cols-3 gap-12">
-                {/* Column 1 - Call Us */}
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-6">
-                    <Phone className="h-12 w-12 text-[#C9A84C] stroke-[1.5]" />
+                    <Phone className="h-12 w-12 stroke-[1.5]" style={{ color: 'var(--accent-warm)' }} />
                   </div>
-                  <h3 className="text-[20px] text-[#1B2A4A] font-bold mb-3">
-                    832-930-4663
+                  <h3 className="font-heading text-[20px] font-bold mb-3" style={{ color: 'var(--dark)' }}>
+                    {settings.phone}
                   </h3>
-                  <p className="text-[15px] text-[#666666] leading-relaxed">
-                    Prefer to talk? So do we. Give us a call during business hours.
+                  <p className="font-sans text-[15px] leading-relaxed" style={{ color: 'var(--dark)', opacity: 0.55 }}>
+                    {contact.otherWays.phoneNote}
                   </p>
                 </div>
 
-                {/* Column 2 - Email Us */}
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-6">
-                    <Mail className="h-12 w-12 text-[#C9A84C] stroke-[1.5]" />
+                    <Mail className="h-12 w-12 stroke-[1.5]" style={{ color: 'var(--accent-warm)' }} />
                   </div>
-                  <h3 className="text-[20px] text-[#1B2A4A] font-bold mb-3">
-                    info@tidalpm.com
+                  <h3 className="font-heading text-[20px] font-bold mb-3" style={{ color: 'var(--dark)' }}>
+                    {settings.email}
                   </h3>
-                  <p className="text-[15px] text-[#666666] leading-relaxed">
-                    Send us a detailed message and we'll respond promptly.
+                  <p className="font-sans text-[15px] leading-relaxed" style={{ color: 'var(--dark)', opacity: 0.55 }}>
+                    {contact.otherWays.emailNote}
                   </p>
                 </div>
 
-                {/* Column 3 - Visit Us */}
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-6">
-                    <MapPin className="h-12 w-12 text-[#C9A84C] stroke-[1.5]" />
+                    <MapPin className="h-12 w-12 stroke-[1.5]" style={{ color: 'var(--accent-warm)' }} />
                   </div>
-                  <h3 className="text-[20px] text-[#1B2A4A] font-bold mb-3">
-                    2417 Truxillo Street
+                  <h3 className="font-heading text-[20px] font-bold mb-3" style={{ color: 'var(--dark)' }}>
+                    {settings.address.line1}
                   </h3>
-                  <p className="text-[15px] text-[#666666] leading-relaxed">
-                    Houston, Texas 77004. Located in the heart of the city.
+                  <p className="font-sans text-[15px] leading-relaxed" style={{ color: 'var(--dark)', opacity: 0.55 }}>
+                    {contact.otherWays.addressNote}
                   </p>
                 </div>
               </div>
@@ -246,7 +309,7 @@ export default function ContactPage() {
         </section>
 
         {/* Section 3: Map */}
-        <section className="py-20 bg-white">
+        <section className="py-20" style={{ background: '#f5f2ec' }}>
           <div className="max-w-[1400px] mx-auto px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -254,15 +317,13 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}>
 
-              {/* Centered Label */}
               <div className="text-center mb-12">
-                <div className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-semibold">
-                  Find Us
+                <div className="font-accent text-[12px] tracking-[0.3em] uppercase font-semibold" style={{ color: 'var(--accent-warm)' }}>
+                  {contact.map.label}
                 </div>
               </div>
 
-              {/* Google Maps Embed Placeholder */}
-              <div className="w-full h-[400px] bg-[#F0EDE6] rounded-sm overflow-hidden">
+              <div className="w-full h-[400px] rounded-sm overflow-hidden" style={{ background: 'var(--bgHolder)' }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.8234567890123!2d-95.3698028!3d29.7604267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640bf3b3b3b3b3b%3A0x1234567890abcdef!2s2417%20Truxillo%20St%2C%20Houston%2C%20TX%2077004!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                   width="100%"
@@ -278,47 +339,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Section 4: Closing CTA - Locked Template */}
-        <section className="relative h-[600px] md:h-[700px] overflow-hidden">
-          {/* Background Photo with Overlay */}
-          <div className="absolute inset-0">
-            <img
-              src="/assets/home-hero.png"
-              alt="Modern Houston Architecture"
-              className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
-
-          {/* Floating White Card - Right Side */}
-          <div className="relative h-full flex items-center justify-end px-8 md:px-16">
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-12 md:p-16 shadow-2xl max-w-[520px] w-full">
-
-              <h2 className="text-[36px] leading-[1.2] text-[#1B2A4A] mb-8">
-                We're here when it matters most.
-              </h2>
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-6">
-                We invite you to take a quick tour of our site and see how we can serve your real estate needs.
-              </p>
-              <p className="text-[16px] text-[#888888] leading-relaxed mb-10">
-                The world may be trending toward AI and automation — and we embrace smart technology. But when it comes to your real estate investments, we still believe in the power of personal service and the human touch. Give us a call.
-              </p>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white border border-[#1B2A4A]/20 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-8 py-6 text-[11px] tracking-[0.2em] uppercase rounded-sm transition-colors"
-                asChild>
-                <Link to="/contact">
-                  Let's Talk <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
       </div>
     </>
   );

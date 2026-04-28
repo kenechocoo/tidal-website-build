@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "Flat Fee Rentals - Tidal Realty Services",
+    "description": "List your rental for a $399 flat fee in Houston. Full MLS exposure, tenant screening, background checks, lease preparation, and move-in coordination."
+  },
+  "hero": {
+    "titleLine1": "Find the right tenant.",
+    "titleLine2": "Without the hefty fee.",
+    "description": "Most property managers charge the equivalent of a full month's rent just to place a tenant. At Tidal Realty Services, we handle the entire tenant placement process for just $399. Full MLS exposure, thorough screening, and lease execution included.",
+    "highlightText": "entire tenant placement process for just $399",
+    "priceCard": {
+      "label": "Flat Fee Rental Listing",
+      "price": "$399",
+      "subtitle": "Full tenant placement. That's it.",
+      "features": [
+        "MLS & HAR listing",
+        "Rental market analysis",
+        "Tenant screening",
+        "Lease preparation & move-in"
+      ]
+    }
+  },
+  "pullQuote": "\"The right tenant changes everything. We help you find them.\"",
+  "features": {
+    "title": "What you get",
+    "description": "Our flat fee covers the full tenant placement process, from listing to lease signing.",
+    "items": [
+      {
+        "icon": "FileText",
+        "title": "MLS & HAR Listing",
+        "description": "Your rental property gets listed on MLS and HAR with professional descriptions and broad syndication to major rental search platforms.",
+        "image": "/assets/section-bg.jpeg"
+      },
+      {
+        "icon": "Search",
+        "title": "Rental Market Pricing Analysis",
+        "description": "We analyze comparable rentals, local trends, and market conditions to position your property at the optimal rental price.",
+        "image": "/assets/hero-house.jpg"
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Tenant Screening & Background Checks",
+        "description": "Every applicant goes through comprehensive background checks, credit reports, rental history verification, and income qualification.",
+        "image": "/assets/home-hero-houston.jpg"
+      },
+      {
+        "icon": "Key",
+        "title": "Lease Preparation & Move-In",
+        "description": "From lease drafting and execution to move-in coordination and property walkthrough, we handle every step.",
+        "image": "/assets/home-hero-house.jpg"
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Compare our fees",
+    "description": "The standard rental commission is one full month's rent, split between the listing agent and the tenant's agent. Here's how our model compares.",
+    "traditional": {
+      "title": "The Traditional Model",
+      "description": "Most listing agents charge half of the first month's rent to list your rental property.",
+      "exampleLabel": "Example: $2,000/month Rental",
+      "lines": [
+        { "label": "Listing Agent (50%):", "value": "$1,000" },
+        { "label": "Tenant's Agent (50%):", "value": "$1,000" },
+        { "label": "Total Commission:", "value": "$2,000" }
+      ],
+      "summary": "That's $1,000 paid just to list your rental."
+    },
+    "tidal": {
+      "title": "The Tidal Model",
+      "description": "We charge a flat $399 to list your rental. We still offer the standard 50% to the tenant's agent to ensure your property gets maximum exposure.",
+      "exampleLabel": "Same $2,000/month Rental:",
+      "lines": [
+        { "label": "Tidal Listing Fee:", "value": "$399" },
+        { "label": "Tenant's Agent:", "value": "$1,000" },
+        { "label": "Total Cost:", "value": "$1,399" }
+      ],
+      "summary": "You save $601"
+    },
+    "savingsTableTitle": "Your Potential Savings",
+    "savingsRows": [
+      { "monthlyRent": "$1,500", "traditional": "$750", "tidal": "$399", "savings": "$351" },
+      { "monthlyRent": "$2,000", "traditional": "$1,000", "tidal": "$399", "savings": "$601" },
+      { "monthlyRent": "$2,500", "traditional": "$1,250", "tidal": "$399", "savings": "$851" },
+      { "monthlyRent": "$3,000", "traditional": "$1,500", "tidal": "$399", "savings": "$1,101" }
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why landlords choose us",
+    "description": "Experienced investors trust us because we keep it simple and transparent.",
+    "items": [
+      {
+        "title": "Predictable Cost",
+        "description": "Know exactly what you're paying upfront. No percentage of rent, no hidden fees."
+      },
+      {
+        "title": "Full MLS Exposure",
+        "description": "Your property gets listed on MLS, HAR, and syndicated to major rental search platforms."
+      },
+      {
+        "title": "Thorough Screening",
+        "description": "Every applicant goes through background checks, credit reports, and rental history verification."
+      }
+    ]
+  },
+  "cta": {
+    "titleLine1": "Ready to find your",
+    "titleLine2": "tenant?",
+    "description": "Let us handle the listing, marketing, and tenant screening so you can focus on what matters.",
+    "buttonLabel": "Get Your Rental Listed",
+    "buttonLink": "/contact"
+  }
+}
