@@ -23,6 +23,8 @@
   "pullQuote": "\"The right tenant changes everything. We help you find them.\"",
   "features": {
     "title": "What you get",
+    "titlePrefix": "What you",
+    "titleItalic": "get",
     "description": "Our flat fee covers the full tenant placement process, from listing to lease signing.",
     "items": [
       {
@@ -53,6 +55,8 @@
   },
   "comparison": {
     "title": "Compare our fees",
+    "titlePrefix": "Compare our",
+    "titleItalic": "fees",
     "description": "The standard rental commission is one full month's rent, split between the listing agent and the tenant's agent. Here's how our model compares.",
     "traditional": {
       "title": "The Traditional Model",
@@ -86,6 +90,8 @@
   },
   "whyChooseUs": {
     "title": "Why landlords choose us",
+    "titlePrefix": "Why landlords",
+    "titleItalic": "choose us",
     "description": "Experienced investors trust us because we keep it simple and transparent.",
     "items": [
       {

@@ -12,6 +12,8 @@
   },
   "services": {
     "label": "Our Services",
+    "headingPrefix": "Our",
+    "headingItalic": "Services",
     "description": "Whether you are a homeowner or investor, Tidal Realty Services designs a set of real estate solutions tailored to your needs and goals. We focus on creating value through proactive management, competitive pricing, and a personal touch that sets us apart.",
     "cards": [
       {

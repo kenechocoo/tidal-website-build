@@ -29,7 +29,7 @@ export default function ServicesPage() {
 
               <div>
                 <h1 className="font-heading text-[48px] md:text-[68px] leading-[1.05] mb-10" style={{ color: 'var(--dark)', fontWeight: 300 }}>
-                  {services.hero.titleLine1}<br />for a <em>flat fee</em>
+                  {services.hero.titleLine1}<br />{services.hero.titleLine2Prefix} <em>{services.hero.titleLine2Italic}</em>
                 </h1>
 
                 <p className="font-sans text-[19px] leading-[1.8] max-w-[540px]" style={{ color: 'var(--dark)' }}>
@@ -67,7 +67,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8 }}>
 
               <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] mb-6" style={{ color: 'var(--dark)', fontWeight: 300 }}>
-                What you <em>get</em>
+                {services.process.titlePrefix} <em>{services.process.titleItalic}</em>
               </h2>
               <p className="font-sans text-[18px] leading-[1.8] max-w-[600px] mb-16" style={{ color: 'var(--dark)', opacity: 0.7 }}>
                 {services.process.description.split(services.process.highlightText)[0]}
@@ -106,7 +106,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8 }}>
 
               <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] mb-6 text-white" style={{ fontWeight: 300 }}>
-                Compare our <em>fees</em>
+                {services.comparison.titlePrefix} <em>{services.comparison.titleItalic}</em>
               </h2>
 
               <p className="font-sans text-[18px] leading-[1.8] max-w-[600px] mb-16 text-white/60">

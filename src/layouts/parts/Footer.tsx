@@ -48,8 +48,8 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0" style={{ background: 'var(--soft)' }}>
                 <img
-                  src="/assets/tidal-logo.png"
-                  alt="Tidal Realty Services"
+                  src={settings.logo}
+                  alt={settings.businessName}
                   className="h-full w-full object-contain mix-blend-multiply"
                 />
               </div>

@@ -30,6 +30,7 @@ collections:
         preview_path: /
         fields:
           - { label: "Business Name", name: businessName, widget: string, hint: "Appears in the top-left of every page (header) and bottom-left of every page (footer)." }
+          - { label: "Logo", name: logo, widget: image, hint: "The Tidal Realty logo. Appears in the top-left of every page and in the footer. Recommended: square image, transparent or white background." }
           - { label: "Tagline", name: tagline, widget: string, hint: "Small text that appears under the business name in the FOOTER on every page." }
           - { label: "Phone Number", name: phone, widget: string, hint: "Used everywhere we show your phone — footer, contact page, header buttons. Format like '832-930-4663'." }
           - { label: "Email Address", name: email, widget: string, hint: "Used for the email shown in the footer and the Contact Us page." }
@@ -110,7 +111,9 @@ collections:
             widget: object
             hint: "The dark navy section right below the hero with three service cards."
             fields:
-              - { label: "Section Heading (e.g. 'Our Services')", name: label, widget: string }
+              - { label: "Section Heading - Regular Part (e.g. 'Our')", name: headingPrefix, widget: string, hint: "First part of the big heading. Will display in normal style." }
+              - { label: "Section Heading - Italic Part (e.g. 'Services')", name: headingItalic, widget: string, hint: "Second part of the big heading. Will display in italic style." }
+              - { label: "Section Label (legacy)", name: label, widget: string, required: false, hint: "Internal field, can usually be left as-is." }
               - { label: "Description paragraph (under the heading)", name: description, widget: text }
               - label: "The 3 Service Cards"
                 name: cards
@@ -162,7 +165,8 @@ collections:
             widget: object
             fields:
               - { label: "Headline Line 1 (e.g. 'Sell your home')", name: titleLine1, widget: string }
-              - { label: "Headline Line 2 — italic part (e.g. 'flat fee')", name: titleLine2, widget: string }
+              - { label: "Headline Line 2 - Regular Part (e.g. 'for a')", name: titleLine2Prefix, widget: string }
+              - { label: "Headline Line 2 - Italic Part (e.g. 'flat fee')", name: titleLine2Italic, widget: string }
               - { label: "Description Paragraph", name: description, widget: text }
               - { label: "Highlight Phrase (will appear bold/italic)", name: highlightText, widget: string, hint: "IMPORTANT: This must EXACTLY match a phrase that appears in the description above. The matching phrase will be shown in bold italic on the page." }
               - label: "Pricing Card (right side — gold)"
@@ -182,7 +186,9 @@ collections:
             widget: object
             hint: "The section with 4 numbered steps explaining the process."
             fields:
-              - { label: "Section Title", name: title, widget: string }
+              - { label: "Heading - Regular Part (e.g. 'What you')", name: titlePrefix, widget: string }
+              - { label: "Heading - Italic Part (e.g. 'get')", name: titleItalic, widget: string }
+              - { label: "Section Title (legacy)", name: title, widget: string, required: false, hint: "Internal field, can usually be left as-is." }
               - { label: "Description", name: description, widget: text }
               - { label: "Highlight Phrase (bold/italic)", name: highlightText, widget: string, hint: "Must match a phrase in the description." }
               - label: "The Process Steps (01, 02, 03, 04)"
@@ -197,7 +203,9 @@ collections:
             widget: object
             hint: "The dark navy section showing the fee comparison + savings table."
             fields:
-              - { label: "Section Title (e.g. 'Compare our fees')", name: title, widget: string }
+              - { label: "Heading - Regular Part (e.g. 'Compare our')", name: titlePrefix, widget: string }
+              - { label: "Heading - Italic Part (e.g. 'fees')", name: titleItalic, widget: string }
+              - { label: "Section Title (legacy)", name: title, widget: string, required: false, hint: "Internal field, can usually be left as-is." }
               - { label: "Description", name: description, widget: text }
               - label: "Traditional Model Card (faded gray card)"
                 name: traditional
@@ -287,7 +295,9 @@ collections:
             widget: object
             hint: "The section with 4 features in a zigzag layout, each with an icon and photo."
             fields:
-              - { label: "Section Title", name: title, widget: string }
+              - { label: "Heading - Regular Part (e.g. 'What you')", name: titlePrefix, widget: string }
+              - { label: "Heading - Italic Part (e.g. 'get')", name: titleItalic, widget: string }
+              - { label: "Section Title (legacy)", name: title, widget: string, required: false, hint: "Internal field, can usually be left as-is." }
               - { label: "Description", name: description, widget: text }
               - label: "Feature Items"
                 name: items
@@ -344,7 +354,9 @@ collections:
             name: whyChooseUs
             widget: object
             fields:
-              - { label: "Section Title", name: title, widget: string }
+              - { label: "Heading - Regular Part (e.g. 'Why landlords')", name: titlePrefix, widget: string }
+              - { label: "Heading - Italic Part (e.g. 'choose us')", name: titleItalic, widget: string }
+              - { label: "Section Title (legacy)", name: title, widget: string, required: false, hint: "Internal field, can usually be left as-is." }
               - { label: "Description", name: description, widget: text }
               - label: "3 Reason Cards"
                 name: items

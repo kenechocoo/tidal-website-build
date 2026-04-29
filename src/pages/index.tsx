@@ -28,7 +28,7 @@ export default function HomePage() {
             <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
               <Link to="/" className="flex items-center gap-3 group">
                 <img
-                  src="/assets/tidal-logo.png"
+                  src={settings.logo}
                   alt={settings.businessName}
                   className="h-12 w-12 object-contain group-hover:scale-105 transition-transform mix-blend-multiply"
                 />
@@ -147,7 +147,7 @@ export default function HomePage() {
                 <div className="w-[20px] h-[2px]" style={{ background: '#B8C9D6' }}></div>
               </div>
               <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] text-white mb-4" style={{ fontWeight: 300 }}>
-                Our <em>{home.services.label.replace('Our ', '')}</em>
+                {home.services.headingPrefix} <em>{home.services.headingItalic}</em>
               </h2>
               <p className="font-sans text-[19px] leading-[1.7] max-w-[700px]" style={{ color: 'var(--soft)', opacity: 0.9 }}>
                 {home.services.description}

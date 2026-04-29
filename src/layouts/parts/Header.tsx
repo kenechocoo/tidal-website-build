@@ -30,7 +30,7 @@ export default function Header() {
           {/* Horizontal Logo Lockup — icon + wordmark inline, max 40px height */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="/assets/tidal-logo.png"
+              src={settings.logo}
               alt={settings.businessName}
               className="h-12 w-12 object-contain group-hover:scale-105 transition-transform mix-blend-multiply"
             />

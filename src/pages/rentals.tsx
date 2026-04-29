@@ -87,7 +87,7 @@ export default function RentalsPage() {
               transition={{ duration: 0.8 }}>
 
               <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] mb-6" style={{ color: 'var(--dark)', fontWeight: 300 }}>
-                {rentals.features.title.split(' ').slice(0, -1).join(' ')} <em>{rentals.features.title.split(' ').slice(-1)[0]}</em>
+                {rentals.features.titlePrefix} <em>{rentals.features.titleItalic}</em>
               </h2>
 
               <p className="font-sans text-[18px] leading-[1.8] max-w-[600px] mb-16" style={{ color: 'var(--dark)', opacity: 0.7 }}>
@@ -141,7 +141,7 @@ export default function RentalsPage() {
               transition={{ duration: 0.8 }}>
 
               <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] mb-6 text-white" style={{ fontWeight: 300 }}>
-                Compare our <em>fees</em>
+                {rentals.comparison.titlePrefix} <em>{rentals.comparison.titleItalic}</em>
               </h2>
 
               <p className="font-sans text-[18px] leading-[1.8] max-w-[600px] mb-16 text-white/80">
@@ -225,7 +225,7 @@ export default function RentalsPage() {
               transition={{ duration: 0.8 }}>
 
               <h2 className="font-heading text-[40px] md:text-[52px] leading-[1.1] mb-6" style={{ color: 'var(--dark)', fontWeight: 300 }}>
-                Why landlords <em>choose us</em>
+                {rentals.whyChooseUs.titlePrefix} <em>{rentals.whyChooseUs.titleItalic}</em>
               </h2>
               <p className="font-sans text-[18px] leading-[1.8] max-w-[600px] mb-16" style={{ color: 'var(--dark)', opacity: 0.7 }}>
                 {rentals.whyChooseUs.description}
