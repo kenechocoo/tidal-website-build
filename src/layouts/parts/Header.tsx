@@ -15,12 +15,12 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/services', label: 'List for Sale' },
-    { href: '/rentals', label: 'List for Rent' },
-    { href: '/asset-management', label: 'Property Management' },
-    { href: settings.theNestUrl, label: 'The Nest', external: true },
-    { href: '/contact', label: 'Contact Us' },
+    { href: '/', label: settings.navigation.home },
+    { href: '/services', label: settings.navigation.services },
+    { href: '/rentals', label: settings.navigation.rentals },
+    { href: '/asset-management', label: settings.navigation.assetManagement },
+    { href: settings.theNestUrl, label: settings.navigation.theNest, external: true },
+    { href: '/contact', label: settings.navigation.contact },
   ];
 
   return (
@@ -74,7 +74,7 @@ export default function Header() {
               )
             )}
             <Button size="sm" className="ml-4 text-white text-[15px] font-bold tracking-[0.08em] px-6" style={{ background: 'var(--dark)' }} asChild>
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">{settings.navigation.ctaButton}</Link>
             </Button>
           </nav>
 
@@ -119,7 +119,7 @@ export default function Header() {
                 )
               )}
               <Button size="sm" className="mt-4 text-white text-[15px] font-bold" style={{ background: 'var(--dark)' }} asChild>
-                <Link to="/contact">Get Started</Link>
+                <Link to="/contact">{settings.navigation.ctaButton}</Link>
               </Button>
             </nav>
           </div>

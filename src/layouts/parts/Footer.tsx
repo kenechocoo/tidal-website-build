@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-8 py-6">
           <div className="flex flex-col items-center gap-3">
             <p className="font-sans text-[12px] text-white/60 text-center max-w-[700px] leading-relaxed">
-              As required by the Texas Real Estate Commission, please review the following disclosures:
+              {settings.footer.trecPreamble}
             </p>
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center">
               <a
@@ -25,7 +25,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="font-accent text-[11px] tracking-[0.15em] uppercase text-white/85 hover:text-white underline-offset-4 hover:underline transition-colors"
               >
-                Information About Brokerage Services
+                {settings.footer.trecLinkBrokerage}
               </a>
               <span className="hidden md:inline text-white/30">|</span>
               <a
@@ -34,7 +34,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="font-accent text-[11px] tracking-[0.15em] uppercase text-white/85 hover:text-white underline-offset-4 hover:underline transition-colors"
               >
-                Consumer Protection Notice
+                {settings.footer.trecLinkConsumer}
               </a>
             </div>
           </div>
@@ -126,29 +126,29 @@ export default function Footer() {
             <Link
               to="/services"
               className="block font-accent text-[11px] tracking-[0.15em] uppercase text-white/80 hover:text-white transition-colors">
-              List for Sale
+              {settings.navigation.services}
             </Link>
             <Link
               to="/rentals"
               className="block font-accent text-[11px] tracking-[0.15em] uppercase text-white/80 hover:text-white transition-colors">
-              List for Rent
+              {settings.navigation.rentals}
             </Link>
             <Link
               to="/asset-management"
               className="block font-accent text-[11px] tracking-[0.15em] uppercase text-white/80 hover:text-white transition-colors">
-              Property Management
+              {settings.navigation.assetManagement}
             </Link>
             <a
               href={settings.theNestUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="block font-accent text-[11px] tracking-[0.15em] uppercase text-white/80 hover:text-white transition-colors">
-              The Nest
+              {settings.navigation.theNest}
             </a>
             <Link
               to="/contact"
               className="block font-accent text-[11px] tracking-[0.15em] uppercase text-white/80 hover:text-white transition-colors">
-              Contact Us
+              {settings.navigation.contact}
             </Link>
           </div>
         </div>

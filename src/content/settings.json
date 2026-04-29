@@ -12,5 +12,19 @@
     "instagram": "https://www.instagram.com/tidalrealtyservices/",
     "x": "https://x.com/tidal_realty"
   },
-  "theNestUrl": "https://www.4714wardstreet.com/"
+  "theNestUrl": "https://www.4714wardstreet.com/",
+  "navigation": {
+    "home": "Home",
+    "services": "List for Sale",
+    "rentals": "List for Rent",
+    "assetManagement": "Property Management",
+    "theNest": "The Nest",
+    "contact": "Contact Us",
+    "ctaButton": "Get Started"
+  },
+  "footer": {
+    "trecPreamble": "As required by the Texas Real Estate Commission, please review the following disclosures:",
+    "trecLinkBrokerage": "Information About Brokerage Services",
+    "trecLinkConsumer": "Consumer Protection Notice"
+  }
 }

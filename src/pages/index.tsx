@@ -39,31 +39,31 @@ export default function HomePage() {
 
               <div className="hidden lg:flex items-center gap-8">
                 <Link to="/" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1" style={{ color: 'var(--dark)' }}>
-                  Home
+                  {settings.navigation.home}
                   <span className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'var(--dark)' }} />
                 </Link>
                 <Link to="/services" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
-                  List for Sale
+                  {settings.navigation.services}
                   <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </Link>
                 <Link to="/rentals" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
-                  List for Rent
+                  {settings.navigation.rentals}
                   <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </Link>
                 <Link to="/asset-management" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
-                  Property Management
+                  {settings.navigation.assetManagement}
                   <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </Link>
                 <a href={settings.theNestUrl} target="_blank" rel="noopener noreferrer" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
-                  The Nest
+                  {settings.navigation.theNest}
                   <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </a>
                 <Link to="/contact" className="group text-[16px] font-medium tracking-[0.08em] transition-colors relative pb-1 text-muted-foreground">
-                  Contact Us
+                  {settings.navigation.contact}
                   <span className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-40 transition-opacity" style={{ background: 'var(--dark)' }} />
                 </Link>
                 <Button size="sm" className="ml-4 text-white text-[15px] font-bold tracking-[0.08em] px-6" style={{ background: 'var(--dark)' }} asChild>
-                  <Link to="/contact">Get Started</Link>
+                  <Link to="/contact">{settings.navigation.ctaButton}</Link>
                 </Button>
               </div>
 

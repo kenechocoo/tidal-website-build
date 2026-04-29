@@ -49,6 +49,26 @@ collections:
               - { label: "Instagram URL", name: instagram, widget: string }
               - { label: "X (Twitter) URL", name: x, widget: string }
           - { label: "The Nest Property URL", name: theNestUrl, widget: string }
+          - label: "Navigation Menu Labels"
+            name: navigation
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Home", name: home, widget: string }
+              - { label: "List for Sale", name: services, widget: string }
+              - { label: "List for Rent", name: rentals, widget: string }
+              - { label: "Property Management", name: assetManagement, widget: string }
+              - { label: "The Nest", name: theNest, widget: string }
+              - { label: "Contact Us", name: contact, widget: string }
+              - { label: "Get Started Button", name: ctaButton, widget: string }
+          - label: "Footer Disclosures (TREC)"
+            name: footer
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Disclosure Preamble Text", name: trecPreamble, widget: text }
+              - { label: "First Link Label", name: trecLinkBrokerage, widget: string }
+              - { label: "Second Link Label", name: trecLinkConsumer, widget: string }
 
   # ─────────────────────────────────────────────────────────
   # PAGE CONTENT
