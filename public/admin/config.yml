@@ -2,7 +2,6 @@ backend:
   name: github
   repo: kenechocoo/tidal-website-build
   branch: main
-  # OAuth proxy via our own Netlify Functions
   base_url: https://tidalrealtyservices.com
   auth_endpoint: .netlify/functions/auth
 
@@ -11,11 +10,9 @@ media_folder: public/uploads
 # How they are referenced from the site
 public_folder: /uploads
 
-# Display the site URL in the editor for context
 site_url: https://tidalrealtyservices.com
 display_url: https://tidalrealtyservices.com
 
-# Editorial workflow lets boss save drafts before publishing
 publish_mode: simple
 
 collections:
@@ -24,161 +21,283 @@ collections:
   # ─────────────────────────────────────────────────────────
   - name: settings
     label: "⚙️ Site Settings"
-    description: "Phone, email, address and social media URLs that appear on every page."
+    description: "Phone, email, address, social URLs and other things that appear on EVERY page (header and footer)."
     files:
       - file: src/content/settings.json
-        label: General Settings
+        label: "General Settings (header & footer)"
         name: general
         format: json
+        preview_path: /
         fields:
-          - { label: "Business Name", name: businessName, widget: string }
-          - { label: "Tagline (shown in footer)", name: tagline, widget: string }
-          - { label: "Phone Number", name: phone, widget: string }
-          - { label: "Email Address", name: email, widget: string }
+          - { label: "Business Name", name: businessName, widget: string, hint: "Appears in the top-left of every page (header) and bottom-left of every page (footer)." }
+          - { label: "Tagline", name: tagline, widget: string, hint: "Small text that appears under the business name in the FOOTER on every page." }
+          - { label: "Phone Number", name: phone, widget: string, hint: "Used everywhere we show your phone — footer, contact page, header buttons. Format like '832-930-4663'." }
+          - { label: "Email Address", name: email, widget: string, hint: "Used for the email shown in the footer and the Contact Us page." }
           - label: "Office Address"
             name: address
             widget: object
+            hint: "Used in the footer and on the Contact page."
             fields:
-              - { label: "Street Address", name: line1, widget: string }
-              - { label: "City, State Zip", name: line2, widget: string }
+              - { label: "Street Address (e.g. '2417 Truxillo Street')", name: line1, widget: string }
+              - { label: "City, State Zip (e.g. 'Houston, TX 77004')", name: line2, widget: string }
           - label: "Social Media URLs"
             name: social
             widget: object
+            hint: "These are the icon links in the footer. Leave the full URL — e.g. https://www.linkedin.com/..."
             fields:
               - { label: "LinkedIn URL", name: linkedin, widget: string }
               - { label: "Instagram URL", name: instagram, widget: string }
               - { label: "X (Twitter) URL", name: x, widget: string }
-          - { label: "The Nest Property URL", name: theNestUrl, widget: string }
+          - { label: "The Nest Property URL", name: theNestUrl, widget: string, hint: "Where the 'The Nest' menu item links to." }
           - label: "Navigation Menu Labels"
             name: navigation
             widget: object
             collapsed: true
+            hint: "These are the words that appear in the menu at the top of every page."
             fields:
-              - { label: "Home", name: home, widget: string }
-              - { label: "List for Sale", name: services, widget: string }
-              - { label: "List for Rent", name: rentals, widget: string }
-              - { label: "Property Management", name: assetManagement, widget: string }
-              - { label: "The Nest", name: theNest, widget: string }
-              - { label: "Contact Us", name: contact, widget: string }
-              - { label: "Get Started Button", name: ctaButton, widget: string }
+              - { label: "Home menu label", name: home, widget: string }
+              - { label: "List for Sale menu label", name: services, widget: string }
+              - { label: "List for Rent menu label", name: rentals, widget: string }
+              - { label: "Property Management menu label", name: assetManagement, widget: string }
+              - { label: "The Nest menu label", name: theNest, widget: string }
+              - { label: "Contact Us menu label", name: contact, widget: string }
+              - { label: "'Get Started' button text", name: ctaButton, widget: string }
           - label: "Footer Disclosures (TREC)"
             name: footer
             widget: object
             collapsed: true
+            hint: "Texas Real Estate Commission required disclosures. The PDF files themselves can't be edited here."
             fields:
-              - { label: "Disclosure Preamble Text", name: trecPreamble, widget: text }
-              - { label: "First Link Label", name: trecLinkBrokerage, widget: string }
-              - { label: "Second Link Label", name: trecLinkConsumer, widget: string }
+              - { label: "Preamble Text (above the two disclosure links)", name: trecPreamble, widget: text }
+              - { label: "Brokerage Services Link Label", name: trecLinkBrokerage, widget: string }
+              - { label: "Consumer Protection Link Label", name: trecLinkConsumer, widget: string }
 
   # ─────────────────────────────────────────────────────────
-  # PAGE CONTENT
+  # PAGES
   # ─────────────────────────────────────────────────────────
   - name: pages
     label: "📄 Pages"
-    description: "Edit the content of each page on the website."
+    description: "Each page has its own content. Click any page below to edit it. After saving, give it ~60 seconds for the live site to update."
     files:
       # ─── HOME PAGE ─────────────────────────────────────
       - file: src/content/home.json
         label: "🏠 Home Page"
         name: home
         format: json
+        preview_path: /
+        description: "🔗 [View live page →](https://tidalrealtyservices.com/)"
         fields:
           - label: "SEO / Browser Tab"
             name: meta
             widget: object
             collapsed: true
+            hint: "Shown in browser tabs and search results. Doesn't appear on the page itself."
             fields:
-              - { label: "Page Title", name: title, widget: string }
-              - { label: "Page Description", name: description, widget: text }
-          - label: "Hero (Top Banner)"
+              - { label: "Browser tab title", name: title, widget: string }
+              - { label: "Search engine description (max ~160 chars)", name: description, widget: text }
+          - label: "Hero — top banner with big photo"
             name: hero
             widget: object
+            hint: "The big banner at the very top of the home page."
             fields:
-              - { label: "Big Headline", name: title, widget: string }
-              - { label: "Subtitle", name: subtitle, widget: text }
-              - { label: "CTA Button Label", name: ctaLabel, widget: string }
-              - { label: "CTA Button Link", name: ctaLink, widget: string }
-              - { label: "Background Image", name: image, widget: image }
-          - label: "Our Services Section"
+              - { label: "Big Headline (large text on the photo)", name: title, widget: string, hint: "The huge white text on the navy hero photo." }
+              - { label: "Subtitle (under the headline)", name: subtitle, widget: text }
+              - { label: "Button Label (white pill button)", name: ctaLabel, widget: string }
+              - { label: "Button Link (where the button goes)", name: ctaLink, widget: string, hint: "Use /contact to send to contact page, /services for List for Sale, etc." }
+              - { label: "Background photo", name: image, widget: image, hint: "The big house photo behind the headline." }
+          - label: "Our Services Section (3 cards on navy background)"
             name: services
             widget: object
+            hint: "The dark navy section right below the hero with three service cards."
             fields:
-              - { label: "Section Label", name: label, widget: string }
-              - { label: "Description", name: description, widget: text }
-              - label: "Service Cards (3 cards)"
+              - { label: "Section Heading (e.g. 'Our Services')", name: label, widget: string }
+              - { label: "Description paragraph (under the heading)", name: description, widget: text }
+              - label: "The 3 Service Cards"
                 name: cards
                 widget: list
+                hint: "Each card has a title, short description, and 'Learn More' link. Best to keep exactly 3 cards."
                 fields:
                   - { label: "Card Title", name: title, widget: string }
-                  - { label: "Card Description", name: description, widget: text }
-                  - { label: "Link Text", name: linkText, widget: string }
-                  - { label: "Link URL", name: linkUrl, widget: string }
-          - label: "Our Mission Section"
+                  - { label: "Card Description (short)", name: description, widget: text }
+                  - { label: "Link Text (e.g. 'Learn More')", name: linkText, widget: string }
+                  - { label: "Link URL (page it goes to)", name: linkUrl, widget: string }
+          - label: "Our Mission Section (beige background)"
             name: mission
             widget: object
+            hint: "The beige/cream section in the middle of the home page with the italic quote."
             fields:
-              - { label: "Section Label", name: label, widget: string }
-              - { label: "Pull Quote", name: quote, widget: text }
-              - { label: "Description", name: description, widget: text }
+              - { label: "Section Label (e.g. 'Our Mission')", name: label, widget: string }
+              - { label: "Pull Quote (italic text on the left)", name: quote, widget: text, hint: "Keep the quotation marks on either side." }
+              - { label: "Description (paragraph on the right)", name: description, widget: text }
               - { label: "Button Label", name: ctaLabel, widget: string }
               - { label: "Button Link", name: ctaLink, widget: string }
-          - label: "Closing CTA Section"
+          - label: "Bottom CTA Section (navy with circles)"
             name: closingCta
             widget: object
+            hint: "The very last section before the footer with a centered headline."
             fields:
-              - { label: "Section Label", name: label, widget: string }
+              - { label: "Small Label (above headline)", name: label, widget: string }
               - { label: "Headline", name: title, widget: string }
-              - { label: "Description", name: description, widget: text }
+              - { label: "Description Paragraph", name: description, widget: text }
               - { label: "Button Label", name: ctaLabel, widget: string }
               - { label: "Button Link", name: ctaLink, widget: string }
 
       # ─── LIST FOR SALE ─────────────────────────────────
       - file: src/content/services.json
-        label: "💰 List for Sale Page"
+        label: "💰 List for Sale Page ($999)"
         name: services
         format: json
+        preview_path: /services
+        description: "🔗 [View live page →](https://tidalrealtyservices.com/services)"
         fields:
           - label: "SEO / Browser Tab"
             name: meta
             widget: object
             collapsed: true
             fields:
-              - { label: "Page Title", name: title, widget: string }
-              - { label: "Page Description", name: description, widget: text }
-          - label: "Hero Section"
+              - { label: "Browser tab title", name: title, widget: string }
+              - { label: "Search engine description", name: description, widget: text }
+          - label: "Hero Section (top of page)"
             name: hero
             widget: object
             fields:
-              - { label: "Headline (Line 1)", name: titleLine1, widget: string }
-              - { label: "Headline (Line 2 — italic part)", name: titleLine2, widget: string }
+              - { label: "Headline Line 1 (e.g. 'Sell your home')", name: titleLine1, widget: string }
+              - { label: "Headline Line 2 — italic part (e.g. 'flat fee')", name: titleLine2, widget: string }
               - { label: "Description Paragraph", name: description, widget: text }
-              - { label: "Highlight Phrase (will be bolded)", name: highlightText, widget: string, hint: "This text MUST appear in the description above. It will be styled bold/italic." }
-              - label: "Pricing Card (Right Side)"
+              - { label: "Highlight Phrase (will appear bold/italic)", name: highlightText, widget: string, hint: "IMPORTANT: This must EXACTLY match a phrase that appears in the description above. The matching phrase will be shown in bold italic on the page." }
+              - label: "Pricing Card (right side — gold)"
                 name: priceCard
                 widget: object
+                hint: "The gold price card on the right side of the hero."
                 fields:
-                  - { label: "Label", name: label, widget: string }
-                  - { label: "Price", name: price, widget: string }
-                  - { label: "Subtitle", name: subtitle, widget: string }
-                  - label: "Features (checkmark list)"
+                  - { label: "Small label (e.g. 'Flat Fee Listing')", name: label, widget: string }
+                  - { label: "Big Price Number (e.g. '$999')", name: price, widget: string }
+                  - { label: "Subtitle under the price", name: subtitle, widget: string }
+                  - label: "Bullet List (with checkmarks)"
                     name: features
                     widget: list
                     field: { label: Feature, name: feature, widget: string }
-          - label: "Process Section (What You Get)"
+          - label: "What You Get Section (numbered steps)"
             name: process
             widget: object
+            hint: "The section with 4 numbered steps explaining the process."
             fields:
               - { label: "Section Title", name: title, widget: string }
               - { label: "Description", name: description, widget: text }
-              - { label: "Highlight Phrase (will be bolded)", name: highlightText, widget: string }
-              - label: "Steps"
+              - { label: "Highlight Phrase (bold/italic)", name: highlightText, widget: string, hint: "Must match a phrase in the description." }
+              - label: "The Process Steps (01, 02, 03, 04)"
                 name: steps
                 widget: list
                 fields:
-                  - { label: "Step Number", name: number, widget: string }
+                  - { label: "Step Number (e.g. '01')", name: number, widget: string }
                   - { label: "Step Title", name: title, widget: string }
                   - { label: "Step Description", name: description, widget: text }
-          - label: "Fee Comparison Section"
+          - label: "Compare Our Fees Section (navy)"
+            name: comparison
+            widget: object
+            hint: "The dark navy section showing the fee comparison + savings table."
+            fields:
+              - { label: "Section Title (e.g. 'Compare our fees')", name: title, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - label: "Traditional Model Card (faded gray card)"
+                name: traditional
+                widget: object
+                fields:
+                  - { label: "Card Title", name: title, widget: string }
+                  - { label: "Description", name: description, widget: text }
+                  - { label: "Example Label", name: exampleLabel, widget: string }
+                  - label: "Cost Lines (label + value)"
+                    name: lines
+                    widget: list
+                    fields:
+                      - { label: "Label", name: label, widget: string }
+                      - { label: "Value", name: value, widget: string }
+                  - { label: "Summary Sentence", name: summary, widget: string }
+              - label: "Tidal Model Card (gold card)"
+                name: tidal
+                widget: object
+                fields:
+                  - { label: "Card Title", name: title, widget: string }
+                  - { label: "Description", name: description, widget: text }
+                  - { label: "Example Label", name: exampleLabel, widget: string }
+                  - label: "Cost Lines (label + value)"
+                    name: lines
+                    widget: list
+                    fields:
+                      - { label: "Label", name: label, widget: string }
+                      - { label: "Value", name: value, widget: string }
+                  - { label: "Summary Sentence", name: summary, widget: string }
+              - { label: "Savings Table Title", name: savingsTableTitle, widget: string }
+              - label: "Savings Table Rows"
+                name: savingsRows
+                widget: list
+                hint: "Each row = a different sale price comparing traditional vs Tidal fees."
+                fields:
+                  - { label: "Sale Price (e.g. '$300,000')", name: salePrice, widget: string }
+                  - { label: "Traditional Fee", name: traditional, widget: string }
+                  - { label: "Tidal Fee", name: tidal, widget: string }
+                  - { label: "Your Savings", name: savings, widget: string }
+          - label: "Bottom CTA"
+            name: cta
+            widget: object
+            fields:
+              - { label: "Headline Line 1", name: titleLine1, widget: string }
+              - { label: "Headline Line 2 (italic)", name: titleLine2, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Button Label", name: buttonLabel, widget: string }
+              - { label: "Button Link", name: buttonLink, widget: string }
+
+      # ─── LIST FOR RENT ─────────────────────────────────
+      - file: src/content/rentals.json
+        label: "🏘️ List for Rent Page ($399)"
+        name: rentals
+        format: json
+        preview_path: /rentals
+        description: "🔗 [View live page →](https://tidalrealtyservices.com/rentals)"
+        fields:
+          - label: "SEO / Browser Tab"
+            name: meta
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Browser tab title", name: title, widget: string }
+              - { label: "Search engine description", name: description, widget: text }
+          - label: "Hero Section (top of page)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Headline Line 1", name: titleLine1, widget: string }
+              - { label: "Headline Line 2 (italic)", name: titleLine2, widget: string }
+              - { label: "Description Paragraph", name: description, widget: text }
+              - { label: "Highlight Phrase (bold/italic)", name: highlightText, widget: string, hint: "Must match a phrase in the description." }
+              - label: "Pricing Card (blue, right side)"
+                name: priceCard
+                widget: object
+                fields:
+                  - { label: "Small Label", name: label, widget: string }
+                  - { label: "Big Price (e.g. '$399')", name: price, widget: string }
+                  - { label: "Subtitle", name: subtitle, widget: string }
+                  - label: "Checkmark Features"
+                    name: features
+                    widget: list
+                    field: { label: Feature, name: feature, widget: string }
+          - { label: "Pull Quote (italic text under hero)", name: pullQuote, widget: text, hint: "Keep the quotation marks." }
+          - label: "What You Get Section (zigzag with photos)"
+            name: features
+            widget: object
+            hint: "The section with 4 features in a zigzag layout, each with an icon and photo."
+            fields:
+              - { label: "Section Title", name: title, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - label: "Feature Items"
+                name: items
+                widget: list
+                fields:
+                  - { label: "Icon", name: icon, widget: select, options: ["FileText", "Search", "ShieldCheck", "Key"], hint: "Choose an icon. FileText = listing, Search = analysis, ShieldCheck = screening, Key = move-in." }
+                  - { label: "Title", name: title, widget: string }
+                  - { label: "Description", name: description, widget: text }
+                  - { label: "Photo", name: image, widget: image }
+          - label: "Compare Our Fees Section (navy)"
             name: comparison
             widget: object
             fields:
@@ -197,7 +316,7 @@ collections:
                     fields:
                       - { label: "Label", name: label, widget: string }
                       - { label: "Value", name: value, widget: string }
-                  - { label: "Summary Line", name: summary, widget: string }
+                  - { label: "Summary", name: summary, widget: string }
               - label: "Tidal Model Card"
                 name: tidal
                 widget: object
@@ -211,134 +330,34 @@ collections:
                     fields:
                       - { label: "Label", name: label, widget: string }
                       - { label: "Value", name: value, widget: string }
-                  - { label: "Summary Line", name: summary, widget: string }
-              - { label: "Savings Table Title", name: savingsTableTitle, widget: string }
-              - label: "Savings Rows"
-                name: savingsRows
-                widget: list
-                fields:
-                  - { label: "Sale Price", name: salePrice, widget: string }
-                  - { label: "Traditional Cost", name: traditional, widget: string }
-                  - { label: "Tidal Cost", name: tidal, widget: string }
-                  - { label: "Your Savings", name: savings, widget: string }
-          - label: "Closing CTA"
-            name: cta
-            widget: object
-            fields:
-              - { label: "Headline (Line 1)", name: titleLine1, widget: string }
-              - { label: "Headline (Line 2 — italic part)", name: titleLine2, widget: string }
-              - { label: "Description", name: description, widget: text }
-              - { label: "Button Label", name: buttonLabel, widget: string }
-              - { label: "Button Link", name: buttonLink, widget: string }
-
-      # ─── LIST FOR RENT ─────────────────────────────────
-      - file: src/content/rentals.json
-        label: "🏘️ List for Rent Page"
-        name: rentals
-        format: json
-        fields:
-          - label: "SEO / Browser Tab"
-            name: meta
-            widget: object
-            collapsed: true
-            fields:
-              - { label: "Page Title", name: title, widget: string }
-              - { label: "Page Description", name: description, widget: text }
-          - label: "Hero Section"
-            name: hero
-            widget: object
-            fields:
-              - { label: "Headline (Line 1)", name: titleLine1, widget: string }
-              - { label: "Headline (Line 2 — italic)", name: titleLine2, widget: string }
-              - { label: "Description Paragraph", name: description, widget: text }
-              - { label: "Highlight Phrase (will be bolded)", name: highlightText, widget: string }
-              - label: "Pricing Card"
-                name: priceCard
-                widget: object
-                fields:
-                  - { label: "Label", name: label, widget: string }
-                  - { label: "Price", name: price, widget: string }
-                  - { label: "Subtitle", name: subtitle, widget: string }
-                  - label: "Features"
-                    name: features
-                    widget: list
-                    field: { label: Feature, name: feature, widget: string }
-          - { label: "Pull Quote (in italics)", name: pullQuote, widget: text }
-          - label: "What You Get Section"
-            name: features
-            widget: object
-            fields:
-              - { label: "Section Title", name: title, widget: string }
-              - { label: "Description", name: description, widget: text }
-              - label: "Feature Items"
-                name: items
-                widget: list
-                fields:
-                  - { label: "Icon", name: icon, widget: select, options: ["FileText", "Search", "ShieldCheck", "Key"], hint: "Choose an icon name." }
-                  - { label: "Title", name: title, widget: string }
-                  - { label: "Description", name: description, widget: text }
-                  - { label: "Image", name: image, widget: image }
-          - label: "Fee Comparison"
-            name: comparison
-            widget: object
-            fields:
-              - { label: "Title", name: title, widget: string }
-              - { label: "Description", name: description, widget: text }
-              - label: "Traditional Model"
-                name: traditional
-                widget: object
-                fields:
-                  - { label: "Card Title", name: title, widget: string }
-                  - { label: "Description", name: description, widget: text }
-                  - { label: "Example Label", name: exampleLabel, widget: string }
-                  - label: "Cost Lines"
-                    name: lines
-                    widget: list
-                    fields:
-                      - { label: "Label", name: label, widget: string }
-                      - { label: "Value", name: value, widget: string }
-                  - { label: "Summary", name: summary, widget: string }
-              - label: "Tidal Model"
-                name: tidal
-                widget: object
-                fields:
-                  - { label: "Card Title", name: title, widget: string }
-                  - { label: "Description", name: description, widget: text }
-                  - { label: "Example Label", name: exampleLabel, widget: string }
-                  - label: "Cost Lines"
-                    name: lines
-                    widget: list
-                    fields:
-                      - { label: "Label", name: label, widget: string }
-                      - { label: "Value", name: value, widget: string }
                   - { label: "Summary", name: summary, widget: string }
               - { label: "Savings Table Title", name: savingsTableTitle, widget: string }
-              - label: "Savings Rows"
+              - label: "Savings Table Rows"
                 name: savingsRows
                 widget: list
                 fields:
                   - { label: "Monthly Rent", name: monthlyRent, widget: string }
-                  - { label: "Traditional Cost", name: traditional, widget: string }
-                  - { label: "Tidal Cost", name: tidal, widget: string }
+                  - { label: "Traditional Fee", name: traditional, widget: string }
+                  - { label: "Tidal Fee", name: tidal, widget: string }
                   - { label: "Your Savings", name: savings, widget: string }
-          - label: "Why Landlords Choose Us"
+          - label: "Why Landlords Choose Us (pale blue section)"
             name: whyChooseUs
             widget: object
             fields:
               - { label: "Section Title", name: title, widget: string }
               - { label: "Description", name: description, widget: text }
-              - label: "Reason Cards"
+              - label: "3 Reason Cards"
                 name: items
                 widget: list
                 fields:
                   - { label: "Title", name: title, widget: string }
                   - { label: "Description", name: description, widget: text }
-          - label: "Closing CTA"
+          - label: "Bottom CTA"
             name: cta
             widget: object
             fields:
-              - { label: "Headline (Line 1)", name: titleLine1, widget: string }
-              - { label: "Headline (Line 2 — italic)", name: titleLine2, widget: string }
+              - { label: "Headline Line 1", name: titleLine1, widget: string }
+              - { label: "Headline Line 2 (italic)", name: titleLine2, widget: string }
               - { label: "Description", name: description, widget: text }
               - { label: "Button Label", name: buttonLabel, widget: string }
               - { label: "Button Link", name: buttonLink, widget: string }
@@ -348,72 +367,75 @@ collections:
         label: "🔧 Property Management Page"
         name: asset-management
         format: json
+        preview_path: /asset-management
+        description: "🔗 [View live page →](https://tidalrealtyservices.com/asset-management)"
         fields:
           - label: "SEO / Browser Tab"
             name: meta
             widget: object
             collapsed: true
             fields:
-              - { label: "Page Title", name: title, widget: string }
-              - { label: "Page Description", name: description, widget: text }
-          - label: "Hero Section"
+              - { label: "Browser tab title", name: title, widget: string }
+              - { label: "Search engine description", name: description, widget: text }
+          - label: "Hero Section (huge photo with headline)"
             name: hero
             widget: object
             fields:
-              - { label: "Background Image", name: image, widget: image }
+              - { label: "Background Photo", name: image, widget: image }
               - { label: "Headline Line 1", name: titleLine1, widget: string }
               - { label: "Headline Line 2", name: titleLine2, widget: string }
               - { label: "Description", name: description, widget: text }
               - { label: "Button Label", name: buttonLabel, widget: string }
               - { label: "Button Link", name: buttonLink, widget: string }
-              - label: "Stat Bar"
+              - label: "Stats Bar (bottom of hero)"
                 name: stats
                 widget: list
+                hint: "The stat indicators at the bottom of the hero like '20+ Years Houston Experience'."
                 fields:
                   - { label: "Icon", name: icon, widget: select, options: ["TrendingUp", "Handshake", "DollarSign"] }
-                  - { label: "Bold Text (e.g. '20+')", name: boldText, widget: string, required: false }
+                  - { label: "Bold prefix (e.g. '20+')", name: boldText, widget: string, required: false }
                   - { label: "Text", name: text, widget: string }
-          - label: "Why Tidal Section"
+          - label: "Why Tidal Section (pale blue)"
             name: whyTidal
             widget: object
             fields:
-              - { label: "Section Label", name: label, widget: string }
+              - { label: "Small Label (e.g. 'Why Tidal')", name: label, widget: string }
               - { label: "Headline Line 1", name: titleLine1, widget: string }
               - { label: "Headline Line 2", name: titleLine2, widget: string }
-              - label: "Three Columns"
+              - label: "3 Columns"
                 name: columns
                 widget: list
                 fields:
                   - { label: "Icon", name: icon, widget: select, options: ["DollarSign", "TrendingUp", "Handshake"] }
                   - { label: "Title", name: title, widget: string }
                   - { label: "Description", name: description, widget: text }
-          - label: "Services List Section"
+          - label: "Services List (navy section with bullets)"
             name: services
             widget: object
             fields:
-              - { label: "Section Label", name: label, widget: string }
+              - { label: "Small Label", name: label, widget: string }
               - { label: "Section Title", name: title, widget: string }
               - label: "Service Items"
                 name: items
                 widget: list
                 fields:
                   - { label: "Title", name: title, widget: string }
-                  - { label: "Description", name: description, widget: text }
-          - label: "Multi-Unit Section"
+                  - { label: "Description (right column)", name: description, widget: text }
+          - label: "Multi-Unit Section (split with photo)"
             name: multiUnit
             widget: object
             fields:
-              - { label: "Image", name: image, widget: image }
-              - { label: "Label", name: label, widget: string }
-              - { label: "Title", name: title, widget: string }
+              - { label: "Photo (left side)", name: image, widget: image }
+              - { label: "Small Label", name: label, widget: string }
+              - { label: "Headline", name: title, widget: string }
               - { label: "Description", name: description, widget: text }
-              - label: "Three Features"
+              - label: "3 Features (with gold bars)"
                 name: features
                 widget: list
                 fields:
                   - { label: "Title", name: title, widget: string }
                   - { label: "Description", name: description, widget: text }
-          - label: "Closing CTA"
+          - label: "Bottom CTA"
             name: cta
             widget: object
             fields:
@@ -428,39 +450,42 @@ collections:
         label: "✉️ Contact Page"
         name: contact
         format: json
+        preview_path: /contact
+        description: "🔗 [View live page →](https://tidalrealtyservices.com/contact)"
         fields:
           - label: "SEO / Browser Tab"
             name: meta
             widget: object
             collapsed: true
             fields:
-              - { label: "Page Title", name: title, widget: string }
-              - { label: "Page Description", name: description, widget: text }
+              - { label: "Browser tab title", name: title, widget: string }
+              - { label: "Search engine description", name: description, widget: text }
           - label: "Hero & Form Section"
             name: hero
             widget: object
             fields:
-              - { label: "Background Image", name: image, widget: image }
-              - { label: "Section Label", name: label, widget: string }
-              - { label: "Headline", name: title, widget: string }
-              - { label: "Description", name: description, widget: text }
-              - label: "Dropdown Options (I'm interested in...)"
+              - { label: "Photo (left side of page)", name: image, widget: image }
+              - { label: "Small Label (e.g. 'Get In Touch')", name: label, widget: string }
+              - { label: "Big Headline (e.g. 'Contact Us')", name: title, widget: string }
+              - { label: "Description (under headline)", name: description, widget: text }
+              - label: "Dropdown Options ('I'm interested in...')"
                 name: interestOptions
                 widget: list
+                hint: "Each item becomes a choice in the dropdown menu on the form."
                 field: { label: Option, name: option, widget: string }
-              - { label: "Response Note (under button)", name: responseNote, widget: string }
-              - { label: "Success Title (after submit)", name: successTitle, widget: string }
-              - { label: "Success Message (after submit)", name: successDescription, widget: text }
-          - label: "Other Ways to Reach Us"
+              - { label: "Note under the Send button", name: responseNote, widget: string }
+              - { label: "Success Title (after form is sent)", name: successTitle, widget: string }
+              - { label: "Success Message (after form is sent)", name: successDescription, widget: text }
+          - label: "Other Ways to Reach Us (3 columns)"
             name: otherWays
             widget: object
             fields:
               - { label: "Section Label", name: label, widget: string }
-              - { label: "Phone Note", name: phoneNote, widget: text }
-              - { label: "Email Note", name: emailNote, widget: text }
-              - { label: "Address Note", name: addressNote, widget: text }
+              - { label: "Note under the phone number", name: phoneNote, widget: text }
+              - { label: "Note under the email", name: emailNote, widget: text }
+              - { label: "Note under the address", name: addressNote, widget: text }
           - label: "Map Section"
             name: map
             widget: object
             fields:
-              - { label: "Section Label", name: label, widget: string }
+              - { label: "Small Label (e.g. 'Find Us')", name: label, widget: string }
