@@ -76,3 +76,6 @@ public/assets
 
 # Import temporary files
 .import-*
+
+# Internal handoff documentation (not for public repo)
+HANDOFF_GUIDE.md
