@@ -11,8 +11,16 @@
     "buttonLabel": "Get Started",
     "buttonLink": "/contact",
     "stats": [
-      { "icon": "TrendingUp", "boldText": "20+", "text": "Years Houston Experience" },
-      { "icon": "Handshake", "boldText": "", "text": "Full-Service Property Management" }
+      {
+        "icon": "TrendingUp",
+        "boldText": "20+",
+        "text": "Years Houston Experience"
+      },
+      {
+        "icon": "Handshake",
+        "boldText": "",
+        "text": "Full-Service Property Management"
+      }
     ]
   },
   "whyTidal": {
@@ -23,7 +31,7 @@
       {
         "icon": "DollarSign",
         "title": "Flat Rate Promise",
-        "description": "No percentage-based fees eating your returns. Just $99/month. Predictable, transparent, always."
+        "description": "No percentage-based fees eating your returns. Just $99/month per door. Predictable, transparent, always."
       },
       {
         "icon": "TrendingUp",
@@ -41,13 +49,34 @@
     "label": "Full-Service Management",
     "title": "We Do It All So You Don't Have To.",
     "items": [
-      { "title": "Property Assessment", "description": "Inspect, advise, and prepare your property to attract quality tenants fast" },
-      { "title": "Marketing & Advertising", "description": "MLS, HAR, Greensheet, signage and data-driven rental pricing" },
-      { "title": "Tenant Screening", "description": "Full background checks on every applicant, no exceptions" },
-      { "title": "Rent Collection", "description": "Structured collection with clear due dates protecting your cash flow" },
-      { "title": "Eviction Management", "description": "Swift, professional action when needed, always on the owner's side" },
-      { "title": "HOA & Bill Payment", "description": "We handle mortgage, insurance, HOA and tax payments on your behalf" },
-      { "title": "Monthly Reporting", "description": "Clean income/expense reports monthly plus full year-end accounting" }
+      {
+        "title": "Property Assessment",
+        "description": "Inspect, advise, and prepare your property to attract quality tenants fast"
+      },
+      {
+        "title": "Marketing & Advertising",
+        "description": "MLS, HAR, Greensheet, signage and data-driven rental pricing"
+      },
+      {
+        "title": "Tenant Screening",
+        "description": "Full background checks on every applicant, no exceptions"
+      },
+      {
+        "title": "Rent Collection",
+        "description": "Structured collection with clear due dates protecting your cash flow"
+      },
+      {
+        "title": "Eviction Management",
+        "description": "Swift, professional action when needed, always on the owner's side"
+      },
+      {
+        "title": "HOA & Bill Payment",
+        "description": "We handle mortgage, insurance, HOA and tax payments on your behalf"
+      },
+      {
+        "title": "Monthly Reporting",
+        "description": "Clean income/expense reports monthly plus full year-end accounting"
+      }
     ]
   },
   "multiUnit": {
@@ -56,9 +85,18 @@
     "title": "From Boutique Condos to Large Communities. We've Seen It All.",
     "description": "Our occupancy rates consistently exceed industry averages because we understand that your residents are your income. We attract the best tenants, keep them longer, and handle every aspect of daily operations without the 'slum lord' reputation that comes from cutting corners.",
     "features": [
-      { "title": "Flat Rate Pricing", "description": "Predictable costs that never eat into your returns" },
-      { "title": "Expert Resources", "description": "CPAs, maintenance technicians, and legal support" },
-      { "title": "Resident Retention", "description": "Quality residents kept longer = stable, predictable income" }
+      {
+        "title": "Flat Rate Pricing",
+        "description": "Predictable costs that never eat into your returns"
+      },
+      {
+        "title": "Expert Resources",
+        "description": "CPAs, maintenance technicians, and legal support"
+      },
+      {
+        "title": "Resident Retention",
+        "description": "Quality residents kept longer = stable, predictable income"
+      }
     ]
   },
   "cta": {
