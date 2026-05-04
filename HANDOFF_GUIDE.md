@@ -1,18 +1,18 @@
-# Tidal Realty Services — Website Handoff Guide
+# Tidal Realty Services: Website Handoff Guide
 
 **Last updated:** April 2026
 
 This document is your complete reference for the Tidal Realty Services website. It covers everything you need to keep the site running, edit content, and onboard new people.
 
-> **TL;DR:** The website is live at https://tidalrealtyservices.com. Content is edited at https://tidalrealtyservices.com/admin/. It costs $0/month to run. Everything is hosted on free tiers.
+> **TL;DR:** The website is live at https://tidalrealtyservices.com. Content is edited at https://tidalrealtyservices.com/admin/. It costs $0/month to run. All accounts are tied to **info@tidalpm.com**, so as long as you have access to that inbox, you have access to everything.
 
 ---
 
 ## Table of Contents
 
 1. [Quick Reference](#quick-reference)
-2. [Day 1: First-Time Boss Walkthrough](#day-1-first-time-boss-walkthrough)
-3. [Editing Content (For the Boss)](#editing-content-for-the-boss)
+2. [Day 1: First-Time Walkthrough](#day-1-first-time-walkthrough)
+3. [Editing Content](#editing-content)
 4. [What's Editable vs. What's Not](#whats-editable-vs-whats-not)
 5. [Adding New Editors](#adding-new-editors)
 6. [Troubleshooting](#troubleshooting)
@@ -27,40 +27,45 @@ This document is your complete reference for the Tidal Realty Services website. 
 
 | What | Where |
 |---|---|
-| 🌐 Live website | https://tidalrealtyservices.com |
-| ✏️ Content editor (CMS) | https://tidalrealtyservices.com/admin/ |
-| 📧 Form submissions go to | info@tidalpm.com |
-| ☁️ Hosting | Netlify (free tier) |
-| 🌍 Domain registrar | GoDaddy |
-| 💻 Code repository | https://github.com/kenechocoo/tidal-website-build |
-| 📨 Form service | Web3Forms (free tier, 250 submissions/month) |
+| Live website | https://tidalrealtyservices.com |
+| Content editor (CMS) | https://tidalrealtyservices.com/admin/ |
+| Form submissions go to | info@tidalpm.com |
+| Hosting | Netlify (free tier) |
+| Domain registrar | GoDaddy |
+| Code repository | https://github.com/kenechocoo/tidal-website-build |
+| Form service | Web3Forms (free tier, 250 submissions/month) |
+| Master email for all accounts | **info@tidalpm.com** |
 
-**Time from CMS save → live site:** ~60 seconds (Netlify rebuilds automatically).
+**Time from CMS save to live site:** about 60 seconds (Netlify rebuilds automatically).
 
 ---
 
-## Day 1: First-Time Boss Walkthrough
+## Day 1: First-Time Walkthrough
 
-Hand the boss this section the first time they log in. Walk through it together.
+Read through this section the first time you log in. Walk through it slowly.
 
 ### Before you start
-The boss needs:
-1. A free **GitHub account** — sign up at https://github.com/signup
-2. To be **added as a collaborator** to the repo (someone with admin access does this — see [Adding New Editors](#adding-new-editors))
-3. The collaboration invite email from GitHub — they need to **click "Accept invite"**
+
+You'll need three things:
+
+1. Access to the **info@tidalpm.com** inbox. This is the email tied to every account that runs the website (GitHub, Web3Forms, etc.), so you must be able to read mail sent to it.
+2. A **GitHub account** signed in with info@tidalpm.com. This is the account that owns the repo (kenechocoo) and authorizes you to edit through the CMS. If you ever forget the password, reset it using info@tidalpm.com.
+3. A few minutes to make a test edit and see it go live.
 
 ### First login
+
 1. Open **https://tidalrealtyservices.com/admin/**
 2. Click **"Sign in with GitHub"**
-3. A popup appears → log in with the GitHub account → click **"Authorize"**
-4. The popup closes and the editor appears
+3. A popup window opens. Log in with the info@tidalpm.com GitHub account, then click **"Authorize"**.
+4. The popup closes and the editor appears.
 
 ### What you'll see
+
 A sidebar on the left with two main sections:
 
-**⚙️ Site Settings** — Things that appear on every page (logo, phone, email, address, social media, navigation menu, footer disclosures)
+**⚙️ Site Settings.** Things that appear on every page (logo, phone, email, address, social media, navigation menu, footer disclosures).
 
-**📄 Pages** — Content for each individual page:
+**📄 Pages.** Content for each individual page:
 - 🏠 Home Page
 - 💰 List for Sale Page ($999)
 - 🏘️ List for Rent Page ($399)
@@ -68,58 +73,64 @@ A sidebar on the left with two main sections:
 - ✉️ Contact Page
 
 ### Make your first edit (test run)
+
 1. Click **⚙️ Site Settings → General Settings**
 2. Find the **Tagline** field (currently: *"Full-Service Real Estate Brokerage"*)
 3. Add a period or extra word at the end as a test
 4. Click **Save** in the top right
-5. Wait 60-90 seconds
-6. Open https://tidalrealtyservices.com in a new tab → scroll to the footer → you should see your test edit
-7. **Don't forget to undo your test edit** when done!
+5. Wait 60 to 90 seconds
+6. Open https://tidalrealtyservices.com in a new tab, scroll to the footer, and you should see your test edit
+7. **Don't forget to undo your test edit** when you're done!
 
-If you see your edit on the live site, **everything works**. You're now editing the website.
+If you see your edit on the live site, everything works. You're now editing the website.
 
 ---
 
-## Editing Content (For the Boss)
+## Editing Content
 
 ### The "View Live Page" link
-At the top of each page editor, there's a **"View live page →"** link. Click it to open the actual page in a new tab while you edit. This way you can see what your changes will look like.
+
+At the top of each page editor there's a **"View live page →"** link. Click it to open the actual page in a new tab while you edit. This way you can see what your changes will look like.
 
 ### Saving and publishing
-- Click **"Save"** (top right of editor) → commits to GitHub → Netlify rebuilds → live in ~60s
-- The editor uses **Sveltia CMS** which auto-saves drafts. Your work isn't lost if you close the tab.
+
+Click **"Save"** (top right of editor). Your change commits to GitHub, Netlify rebuilds the site automatically, and the change is live in about 60 seconds.
+
+The editor uses Sveltia CMS, which auto-saves drafts. Your work isn't lost if you close the tab.
 
 ### Field types you'll encounter
 
 | Type | What it looks like | What to do |
 |---|---|---|
-| **Text field** | Single-line input | Type the new text |
-| **Long text** | Multi-line box | Type a paragraph |
-| **Image** | Drag-and-drop area | Drag a file in or click to browse. Recommended: JPG/PNG, under 2MB |
-| **List** | A list of items with "Add" buttons | Click "Add" to add an item, drag to reorder, click trash to delete |
-| **Object** | A group of related fields | Click to expand/collapse |
-| **Dropdown** | Select menu | Pick from the options |
+| Text field | Single-line input | Type the new text |
+| Long text | Multi-line box | Type a paragraph |
+| Image | Drag-and-drop area | Drag a file in or click to browse. Recommended: JPG/PNG, under 2MB |
+| List | A list of items with "Add" buttons | Click "Add" to add an item, drag to reorder, click trash to delete |
+| Object | A group of related fields | Click to expand or collapse |
+| Dropdown | Select menu | Pick from the options |
 
 ### Sections that take some thought
 
-Some pages have a heading split into a "regular part" + "italic part" — like "Compare our *fees*". The CMS shows two fields:
-- **Heading - Regular Part**: `Compare our`
-- **Heading - Italic Part**: `fees`
+Some pages have a heading split into a "regular part" and an "italic part," like "Compare our *fees*". The CMS shows two fields for these:
 
-This lets you change either half. Whatever's in the italic field will appear in italics on the page.
+- **Heading, Regular Part:** Compare our
+- **Heading, Italic Part:** fees
 
-Some descriptions have a **"highlight phrase"** that's emphasized. The highlight phrase MUST exactly match a phrase that appears in the description above. Example:
+This lets you change either half. Whatever you put in the italic field appears in italics on the live page.
+
+Some descriptions have a "highlight phrase" that's emphasized. The highlight phrase MUST exactly match a phrase that appears in the description above. Example:
 
 - Description: *"Most agents charge thousands... we offer a **full-service MLS listing for just $999**."*
 - Highlight phrase: `full-service MLS listing for just $999`
 
-If you change the description but the highlight phrase no longer appears in it, the styling won't apply. Either edit both, or just edit the description without changing the highlighted phrase.
+If you change the description but the highlight phrase no longer appears in it, the styling won't apply. Either update both fields together, or just edit the description without changing the highlighted phrase.
 
 ### Tips
-- **Make small changes and save often** — easier to undo if something looks wrong
-- **Don't change "URL" or "Link" fields** unless you understand what they do — these connect pages together (e.g. "/contact" sends to the Contact page)
-- **Always preview before publishing** — click "View live page →" to see what changed
-- **For images**: Use clear, high-quality photos. The CMS uploads them to your GitHub repo automatically.
+
+- **Make small changes and save often.** It's easier to undo if something looks wrong.
+- **Don't change "URL" or "Link" fields** unless you understand what they do. These connect pages together (for example, "/contact" sends people to the Contact page).
+- **Always preview before publishing.** Click "View live page →" to see what changed.
+- **For images:** use clear, high-quality photos. The CMS uploads them to your GitHub repo automatically.
 
 ---
 
@@ -129,10 +140,10 @@ If you change the description but the highlight phrase no longer appears in it, 
 
 **Site-wide (every page):**
 - Business name
-- **Logo image** (upload a new one)
+- Logo image (upload a new one)
 - Tagline
 - Phone number
-- Email
+- Email address
 - Office address
 - Social media URLs (LinkedIn, Instagram, X)
 - Navigation menu labels (Home, List for Sale, etc.)
@@ -166,49 +177,54 @@ If you change the description but the highlight phrase no longer appears in it, 
 
 To let someone else edit the website:
 
-1. **They need a free GitHub account** at https://github.com/signup
-2. **Add them as a collaborator** to the repo:
+1. They need a free GitHub account at https://github.com/signup.
+2. Add them as a collaborator to the repo:
    - Go to https://github.com/kenechocoo/tidal-website-build/settings/access
-   - Click **"Add people"** → type their GitHub username → choose **"Write"** permission
+   - Click **"Add people"**, type their GitHub username, choose **"Write"** permission
    - Click **"Add to repository"**
-3. **They accept the invite** from the email GitHub sends them
-4. **They can now log in** at https://tidalrealtyservices.com/admin/
+3. They accept the invite from the email GitHub sends them.
+4. They can now log in at https://tidalrealtyservices.com/admin/
 
-To remove an editor:
-1. Same Access page → click the trash icon next to their name
+To remove an editor: same Access page, click the trash icon next to their name.
 
 ---
 
 ## Troubleshooting
 
 ### "The CMS won't let me log in"
+
 1. Confirm your GitHub account is listed at https://github.com/kenechocoo/tidal-website-build/settings/access
-2. Try a different browser or incognito window
-3. Check that the GitHub OAuth App still exists at https://github.com/settings/developers (named "Tidal Realty Services CMS")
+2. Try a different browser or an incognito window.
+3. Check that the GitHub OAuth App still exists at https://github.com/settings/developers (named "Tidal Realty Services CMS").
 
 ### "I edited something but the site didn't update"
-1. Wait 60-90 seconds (Netlify build takes time)
-2. Hard refresh the page (Ctrl+Shift+R on Windows, ⌘+Shift+R on Mac) to bust the cache
+
+1. Wait 60 to 90 seconds. Netlify build takes time.
+2. Hard refresh the page (Ctrl+Shift+R on Windows, ⌘+Shift+R on Mac) to bust the cache.
 3. Check the Netlify deploys page: https://app.netlify.com/projects/tidal-realty-preview/deploys
-   - Latest deploy should say "Published" with a green checkmark
-   - If it says "Failed", the build broke — see [Emergency Recovery](#emergency-recovery)
-4. Confirm you actually clicked **Save** (top-right of editor)
+   - Latest deploy should say "Published" with a green checkmark.
+   - If it says "Failed", the build broke. See [Emergency Recovery](#emergency-recovery).
+4. Confirm you actually clicked **Save** (top-right of editor).
 
 ### "Contact form submissions stopped arriving"
-1. Check the spam folder in info@tidalpm.com
-2. Log into https://web3forms.com → check submission count (free tier = 250/month)
-3. If quota exceeded, upgrade to Web3Forms paid (~$5/month)
-4. Verify the access key in `src/pages/contact.tsx` still matches your Web3Forms account
+
+1. Check the spam folder in info@tidalpm.com.
+2. Log into https://web3forms.com and check your submission count (free tier is 250 submissions per month).
+3. If quota is exceeded, upgrade to Web3Forms paid (about $5/month).
+4. Verify the access key in `src/pages/contact.tsx` still matches your Web3Forms account.
 
 ### "The live site is showing an error or is broken"
+
 See [Emergency Recovery](#emergency-recovery) below.
 
 ### "I deleted something by accident"
+
 Every CMS save commits to GitHub, so nothing is permanently lost.
-- Go to https://github.com/kenechocoo/tidal-website-build/commits/main
-- Find the commit before your accidental change
-- Click "..." on that commit → "Browse files" → find the file
-- Copy its contents and paste back into the CMS
+
+1. Go to https://github.com/kenechocoo/tidal-website-build/commits/main
+2. Find the commit before your accidental change.
+3. Click "..." on that commit, then "Browse files", then find the file.
+4. Copy its contents and paste them back into the CMS.
 
 ---
 
@@ -223,124 +239,135 @@ Every CMS save commits to GitHub, so nothing is permanently lost.
 | Web3Forms | Contact form delivery | Free (250 submissions/month) |
 | Sveltia CMS | Content editor | Free, open source |
 
-### Yearly cost: **~$15**
+### Yearly cost: **about $15**
 
 | Service | What | Cost |
 |---|---|---|
-| GoDaddy | Domain registration | ~$15/year for tidalrealtyservices.com |
+| GoDaddy | Domain registration | About $15/year for tidalrealtyservices.com |
 
 ### When you might need to upgrade
 
-- **Web3Forms**: If you ever exceed 250 form submissions/month → upgrade to ~$5/month
-- **Netlify**: If you ever exceed 100GB bandwidth/month or 300 build minutes/month → upgrade to ~$19/month (very unlikely for a small business site)
-- **Visual editing**: If your boss wants Squarespace-style click-to-edit visual editing → switch to TinaCMS (~$29/month) — see "Future Considerations" in the developer section
+- **Web3Forms:** if you ever exceed 250 form submissions in a month, upgrade to about $5/month.
+- **Netlify:** if you ever exceed 100GB bandwidth/month or 300 build minutes/month, upgrade to about $19/month. Very unlikely for a small business site.
+- **Visual editing:** if you ever want Squarespace-style click-to-edit visual editing, switch to TinaCMS (about $29/month). See "Future considerations" in the developer section.
 
 ---
 
 ## Account Inventory & Credentials
 
-**Critical:** Whoever is taking over the site must have access to ALL of these accounts before the original creator leaves.
+**Critical:** every account that runs the website is tied to **info@tidalpm.com**. As long as you have access to that inbox, you can recover any password and access every service. Save these login pages and your passwords in a password manager (1Password, Bitwarden, Apple Keychain, etc.).
 
-| Service | URL | Currently owned by | What it controls |
+| Service | URL | Email on file | What it controls |
 |---|---|---|---|
-| GitHub | https://github.com/kenechocoo/tidal-website-build | kenechocoo | All website code + content |
-| GitHub OAuth App | https://github.com/settings/developers | kenechocoo | CMS login |
-| Netlify | https://app.netlify.com/projects/tidal-realty-preview | (linked to kenechocoo's GitHub) | Hosting, domain, env vars |
-| GoDaddy | https://dcc.godaddy.com → tidalrealtyservices.com | (boss's account) | Domain |
-| Web3Forms | https://web3forms.com | (your account) | Contact form delivery |
-| info@tidalpm.com | (Gmail / Outlook / wherever this is hosted) | (boss's account) | Inbox for form submissions |
+| info@tidalpm.com inbox | (Gmail, Outlook, or wherever this inbox is hosted) | itself | Master recovery email for all other accounts |
+| GitHub | https://github.com/kenechocoo/tidal-website-build | info@tidalpm.com | All website code + content |
+| GitHub OAuth App | https://github.com/settings/developers | info@tidalpm.com | CMS login |
+| Netlify | https://app.netlify.com/projects/tidal-realty-preview | (linked to the GitHub account) | Hosting, domain, env vars |
+| Web3Forms | https://web3forms.com | info@tidalpm.com | Contact form delivery |
+| GoDaddy | https://dcc.godaddy.com (search for tidalrealtyservices.com) | (your account) | Domain |
 
-### Handoff checklist
-- [ ] Boss has owner-level GitHub access to the repo (or repo is transferred to boss's GitHub)
-- [ ] Boss is admin on the Netlify project (or Netlify project is transferred)
-- [ ] Boss can log into Web3Forms (account is in their email or transferred)
-- [ ] Boss has GoDaddy login
-- [ ] Boss has access to info@tidalpm.com inbox
-- [ ] All credentials documented in a password manager (1Password, Bitwarden, etc.) shared with boss
+### What you need to do right now
+
+1. Confirm you can log into **info@tidalpm.com**. If you can't, fix that first because every other recovery flow needs it.
+2. Log into **GitHub** at https://github.com using info@tidalpm.com. If you don't remember the password, click "Forgot password?" and reset it via that inbox.
+3. Log into **Netlify** at https://app.netlify.com. It uses GitHub for sign-in by default, so once GitHub works, Netlify works.
+4. Log into **Web3Forms** at https://web3forms.com using info@tidalpm.com.
+5. Log into **GoDaddy** at https://dcc.godaddy.com.
+6. Save all six logins in a password manager. If anyone else needs access in the future, share through the password manager.
+
+### If you ever lose access to info@tidalpm.com
+
+That would be the worst case. Without that inbox, you can't reset passwords on GitHub, Web3Forms, or any service tied to it. Treat info@tidalpm.com like the master key to the website. Make sure two-factor authentication is enabled on it, and that recovery codes are saved somewhere safe (printed and locked in a drawer is fine).
 
 ---
 
 ## Technical Reference (For Developers)
 
-This section is for whoever inherits the codebase as a developer.
+This section is for whoever inherits the codebase as a developer (you, a future hire, or a freelancer).
 
 ### Stack
-- **Framework**: React 19 + TypeScript + Vite
-- **Styling**: Tailwind CSS + shadcn/ui components (Radix UI primitives)
-- **CMS**: [Sveltia CMS](https://github.com/sveltia/sveltia-cms) (modern fork of Decap CMS, drop-in compatible config)
-- **Auth**: GitHub OAuth App + custom Netlify Functions OAuth proxy
-- **Forms**: [Web3Forms](https://web3forms.com)
-- **Deployment**: Netlify continuous deployment from GitHub `main` branch
-- **DNS**: GoDaddy → A record `@` → `75.2.60.5` (Netlify), CNAME `www` → `tidal-realty-preview.netlify.app`
+
+- **Framework:** React 19 + TypeScript + Vite
+- **Styling:** Tailwind CSS + shadcn/ui components (Radix UI primitives)
+- **CMS:** Sveltia CMS (modern fork of Decap CMS, drop-in compatible config)
+- **Auth:** GitHub OAuth App + custom Netlify Functions OAuth proxy
+- **Forms:** Web3Forms
+- **Deployment:** Netlify continuous deployment from GitHub `main` branch
+- **DNS:** GoDaddy with A record `@` pointing to `75.2.60.5` (Netlify), CNAME `www` pointing to `tidal-realty-preview.netlify.app`
 
 ### Project structure
+
 ```
 .
 ├── src/
-│   ├── content/              ← All editable content (CMS reads/writes here)
-│   │   ├── settings.json     ← Site-wide (header, footer, social, nav labels, logo)
-│   │   ├── home.json         ← Home page
-│   │   ├── services.json     ← List for Sale page ($999)
-│   │   ├── rentals.json      ← List for Rent page ($399)
+│   ├── content/                   ← All editable content (CMS reads/writes here)
+│   │   ├── settings.json          ← Site-wide (header, footer, social, nav labels, logo)
+│   │   ├── home.json              ← Home page
+│   │   ├── services.json          ← List for Sale page ($999)
+│   │   ├── rentals.json           ← List for Rent page ($399)
 │   │   ├── asset-management.json  ← Property Management page
-│   │   └── contact.json      ← Contact page
-│   ├── pages/                ← React page components (read from content/)
-│   ├── layouts/parts/        ← Header, Footer (read from settings.json)
-│   ├── components/ui/        ← shadcn/ui components
+│   │   └── contact.json           ← Contact page
+│   ├── pages/                     ← React page components (read from content/)
+│   ├── layouts/parts/             ← Header, Footer (read from settings.json)
+│   ├── components/ui/             ← shadcn/ui components
 │   └── ...
 ├── public/
 │   ├── admin/
-│   │   ├── index.html        ← Sveltia CMS entry point
-│   │   └── config.yml        ← CMS schema (defines all editable fields)
-│   ├── documents/            ← TREC PDF disclosures
-│   ├── fonts/                ← Brand fonts (Founders Grotesk, Tiempos Headline)
-│   ├── uploads/              ← CMS-uploaded images go here
-│   ├── _headers              ← Netlify cache headers
-│   └── _redirects            ← Netlify SPA fallback (/* → /index.html 200)
+│   │   ├── index.html             ← Sveltia CMS entry point
+│   │   └── config.yml             ← CMS schema (defines all editable fields)
+│   ├── documents/                 ← TREC PDF disclosures
+│   ├── fonts/                     ← Brand fonts (Founders Grotesk, Tiempos Headline)
+│   ├── uploads/                   ← CMS-uploaded images go here
+│   ├── _headers                   ← Netlify cache headers
+│   └── _redirects                 ← Netlify SPA fallback (/* → /index.html 200)
 ├── netlify/
 │   └── functions/
-│       ├── auth.js           ← OAuth start (redirects to GitHub)
-│       └── callback.js       ← OAuth callback (exchanges code for token)
-├── netlify.toml              ← Netlify build config
-└── HANDOFF_GUIDE.md          ← This file
+│       ├── auth.js                ← OAuth start (redirects to GitHub)
+│       └── callback.js            ← OAuth callback (exchanges code for token)
+├── netlify.toml                   ← Netlify build config
+└── HANDOFF_GUIDE.md               ← This file
 ```
 
 ### How content is wired up
 
-1. **Boss edits in CMS** at `/admin/` → Sveltia commits the JSON file change to GitHub via the GitHub API
-2. **Netlify detects the push** to `main` → triggers a build
-3. **Vite builds** the React app, which imports the JSON files at build time → produces `dist/client/`
-4. **Netlify deploys** `dist/client/` → live in ~60 seconds
+1. The boss edits in the CMS at `/admin/`. Sveltia commits the JSON file change to GitHub via the GitHub API.
+2. Netlify detects the push to `main` and triggers a build.
+3. Vite builds the React app, which imports the JSON files at build time, producing `dist/client/`.
+4. Netlify deploys `dist/client/`. The site goes live in about 60 seconds.
 
 ### How CMS auth works
 
-1. User clicks "Sign in with GitHub" at `/admin/`
-2. Sveltia CMS calls `https://tidalrealtyservices.com/.netlify/functions/auth`
-3. That function (`netlify/functions/auth.js`) redirects to `https://github.com/login/oauth/authorize` with the Client ID
-4. User authorizes → GitHub redirects to `https://tidalrealtyservices.com/.netlify/functions/callback?code=...`
-5. The callback function exchanges the code for an access token using the Client ID + Secret
-6. The token is sent back to the CMS via `window.opener.postMessage`
-7. Sveltia uses the token to read/write files via GitHub API
+1. User clicks "Sign in with GitHub" at `/admin/`.
+2. Sveltia CMS calls `https://tidalrealtyservices.com/.netlify/functions/auth`.
+3. That function (`netlify/functions/auth.js`) redirects to `https://github.com/login/oauth/authorize` with the Client ID.
+4. User authorizes, GitHub redirects to `https://tidalrealtyservices.com/.netlify/functions/callback?code=...`.
+5. The callback function exchanges the code for an access token using the Client ID + Secret.
+6. The token is sent back to the CMS via `window.opener.postMessage`.
+7. Sveltia uses the token to read and write files via the GitHub API.
 
-**Required environment variables** (set in Netlify dashboard → Site settings → Environment variables):
-- `GITHUB_CLIENT_ID` — Public OAuth App ID (`Ov23liFJcRDWp7FkAnXn`)
-- `GITHUB_CLIENT_SECRET` — Secret OAuth credential (rotate if leaked)
+**Required environment variables** (set in Netlify dashboard at Site settings → Environment variables):
+
+- `GITHUB_CLIENT_ID`: public OAuth App ID (currently `Ov23liFJcRDWp7FkAnXn`)
+- `GITHUB_CLIENT_SECRET`: secret OAuth credential (rotate if leaked)
 
 The OAuth App config:
+
 - Authorization callback URL: `https://tidalrealtyservices.com/.netlify/functions/callback`
 - Homepage URL: `https://tidalrealtyservices.com`
 
 ### How forms work
 
 The contact form (`src/pages/contact.tsx`) submits to `https://api.web3forms.com/submit` with:
-- `access_key`: hardcoded in the source — currently `2939e2b8-059e-442c-ad94-3b050a44129e`
-- All form field values
-- `subject`: auto-built from name and interest
-- `from_name`: identifies submissions in the inbox
+
+- `access_key`: hardcoded in the source. Currently `2939e2b8-059e-442c-ad94-3b050a44129e`.
+- All form field values.
+- `subject`: auto-built from name and interest.
+- `from_name`: identifies submissions in the inbox.
 
 Web3Forms emails submissions to whatever address is set in the Web3Forms dashboard (currently info@tidalpm.com).
 
 ### Local development
+
 ```bash
 git clone https://github.com/kenechocoo/tidal-website-build.git
 cd tidal-website-build
@@ -349,76 +376,79 @@ npm run dev          # local server at http://localhost:5173
 ```
 
 To deploy manually:
+
 ```bash
 npm run build
 sed -i '' 's/ crossorigin//g' dist/client/index.html  # workaround for Netlify
 netlify deploy --prod --dir=dist/client --functions=netlify/functions
 ```
 
-But normally you don't need to — pushing to `main` auto-deploys.
+You usually don't need to deploy manually because pushing to `main` auto-deploys.
 
 ### Adding new editable fields
 
-To make some new piece of text editable:
+To make a new piece of text editable through the CMS:
 
-1. Find it in the React component (e.g. `src/pages/index.tsx`)
-2. Add a corresponding key in the matching JSON file (e.g. `src/content/home.json`)
-3. Replace the hardcoded text in the React component with `{home.someNewField}`
-4. Add a field definition in `public/admin/config.yml` so the CMS shows it
-5. Test locally with `npm run dev`
-6. Push to `main` → live in ~60s
+1. Find the text in the React component (e.g. `src/pages/index.tsx`).
+2. Add a corresponding key in the matching JSON file (e.g. `src/content/home.json`).
+3. Replace the hardcoded text in the React component with `{home.someNewField}`.
+4. Add a field definition in `public/admin/config.yml` so the CMS shows it.
+5. Test locally with `npm run dev`.
+6. Push to `main`. The change goes live in about 60 seconds.
 
 ### Future considerations
 
-**If you want Squarespace-style visual editing:** Switch to or add **TinaCMS** alongside Sveltia. TinaCMS lets users click directly on text on the live site to edit it inline. Costs ~$29/month for business use. Both can coexist — Sveltia stays as a free fallback.
+**Squarespace-style visual editing.** Switch to or add TinaCMS alongside Sveltia. TinaCMS lets users click directly on text on the live site to edit it inline. Costs about $29/month for business use. Both CMSs can coexist. Sveltia stays as a free fallback.
 
-**If you want a property listings feature:** The orphaned `/listings` page exists but isn't linked. To resurrect it:
-1. Add a link in the navigation in `src/content/settings.json` → `navigation`
-2. Convert the hardcoded `properties` array in `src/pages/listings.tsx` to a folder collection in the CMS
-3. Each property becomes its own JSON file in `src/content/properties/`
-4. Boss can then add/remove/edit properties through the CMS
+**Property listings feature.** The orphaned `/listings` page exists but isn't linked. To resurrect it:
 
-**If you want a blog:** Add a folder collection in `config.yml` for `src/content/posts/`, create a `src/pages/blog/` route to list and render them.
+1. Add a link in the navigation in `src/content/settings.json` under `navigation`.
+2. Convert the hardcoded `properties` array in `src/pages/listings.tsx` to a folder collection in the CMS.
+3. Each property becomes its own JSON file in `src/content/properties/`.
+4. The boss can then add, remove, or edit properties through the CMS.
+
+**Blog.** Add a folder collection in `config.yml` for `src/content/posts/`, then create a `src/pages/blog/` route to list and render them.
 
 ---
 
 ## Emergency Recovery
 
-### "The live site is broken — what do I do?"
+### "The live site is broken, what do I do?"
 
 Don't panic. Every successful deploy is preserved on Netlify. You can roll back instantly:
 
 1. Go to https://app.netlify.com/projects/tidal-realty-preview/deploys
-2. Find the most recent deploy that has a **green checkmark** ("Published")
-3. Click the **"..."** menu next to it
-4. Click **"Publish deploy"**
-5. Within 30 seconds, the live site is back to that working state
+2. Find the most recent deploy that has a **green checkmark** ("Published").
+3. Click the **"..."** menu next to it.
+4. Click **"Publish deploy"**.
+5. Within 30 seconds, the live site is back to that working state.
 
-This **does not undo** any CMS changes — they're still in GitHub. It just makes Netlify serve an older build until you fix the underlying issue.
+This does not undo any CMS changes. They're still in GitHub. It just makes Netlify serve an older build until you fix the underlying issue.
 
-### "I broke the CMS config — boss can't log in"
+### "I broke the CMS config, no one can log in"
 
 1. Go to https://github.com/kenechocoo/tidal-website-build/commits/main/public/admin/config.yml
-2. Find the previous working version of `config.yml`
-3. Click "..." → "View file" → click the raw button → copy the contents
-4. Edit `public/admin/config.yml` on GitHub directly with the working version
-5. Commit → Netlify rebuilds → CMS works again
+2. Find the previous working version of `config.yml`.
+3. Click "...", then "View file", then click the raw button and copy the contents.
+4. Edit `public/admin/config.yml` on GitHub directly with the working version.
+5. Commit the change. Netlify rebuilds and the CMS works again.
 
-### "Domain stopped pointing to the site"
+### "The domain stopped pointing to the site"
 
-1. Check GoDaddy DNS settings — the A record for `@` should be `75.2.60.5`
-2. Check Netlify domain settings — `tidalrealtyservices.com` should be added as the primary domain
-3. SSL certificate issues usually self-heal in 24 hours; otherwise, click "Renew certificate" in Netlify
+1. Check GoDaddy DNS settings. The A record for `@` should be `75.2.60.5`.
+2. Check Netlify domain settings. `tidalrealtyservices.com` should be added as the primary domain.
+3. SSL certificate issues usually self-heal in 24 hours. Otherwise, click "Renew certificate" in Netlify.
 
 ---
 
 ## Final notes from the original developer
 
-- The site was built with substantial customization that doesn't exist in any template. Treat it as a custom property — small changes are safe, big architectural changes need a developer.
-- **Don't disable the OAuth App** unless you're prepared for the CMS to stop working immediately.
-- **Don't change the GitHub repo name** without updating `public/admin/config.yml` (it has the repo name hardcoded).
-- **Web3Forms access key** is in the codebase. If you ever rotate it, update `src/pages/contact.tsx`.
+- The site was built with substantial customization that doesn't exist in any template. Treat it as a custom property. Small changes are safe, big architectural changes need a developer.
+- Don't disable the OAuth App unless you're prepared for the CMS to stop working immediately.
+- Don't change the GitHub repo name without updating `public/admin/config.yml`. The repo name is hardcoded in there.
+- The Web3Forms access key lives in the codebase. If you ever rotate it, update `src/pages/contact.tsx`.
+- Keep info@tidalpm.com locked down with two-factor authentication. It's the master key to every account.
 
-For any questions or issues you can't solve from this guide, hire a freelance React/TypeScript developer — the codebase is small (~6 pages), well-organized, and shouldn't take more than 1-2 hours for someone competent to get oriented.
+For any questions or issues you can't solve from this guide, hire a freelance React/TypeScript developer. The codebase is small (about 6 pages), well-organized, and shouldn't take more than 1 to 2 hours for someone competent to get oriented.
 
 Good luck! 🌊
