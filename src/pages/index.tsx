@@ -27,11 +27,13 @@ export default function HomePage() {
           <nav className="relative z-10 h-[72px] flex-shrink-0 flex items-center px-8" style={{ background: 'var(--bgHolder)' }}>
             <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
               <Link to="/" className="flex items-center gap-3 group">
-                <img
-                  src={settings.logo}
-                  alt={settings.businessName}
-                  className="h-12 w-12 object-contain group-hover:scale-105 transition-transform mix-blend-multiply"
-                />
+                <div className="h-12 w-12 overflow-hidden flex items-center justify-center flex-shrink-0">
+                  <img
+                    src={settings.logo}
+                    alt={settings.businessName}
+                    className="h-full w-full object-contain scale-[1.85] group-hover:scale-[1.95] transition-transform mix-blend-multiply"
+                  />
+                </div>
                 <span className="text-[20px] font-bold tracking-[0.06em] uppercase leading-none group-hover:text-primary transition-colors" style={{ color: 'var(--dark)' }}>
                   {settings.businessName}
                 </span>

@@ -46,11 +46,11 @@ export default function Footer() {
           {/* Left - Logo + Tagline */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0" style={{ background: 'var(--soft)' }}>
+              <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center" style={{ background: 'var(--soft)' }}>
                 <img
                   src={settings.logo}
                   alt={settings.businessName}
-                  className="h-full w-full object-contain mix-blend-multiply"
+                  className="h-full w-full object-contain scale-[1.85] mix-blend-multiply"
                 />
               </div>
               <span className="font-sans text-lg font-bold">{settings.businessName}</span>

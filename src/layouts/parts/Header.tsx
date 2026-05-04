@@ -29,11 +29,13 @@ export default function Header() {
         <div className="flex h-[72px] items-center justify-between">
           {/* Horizontal Logo Lockup — icon + wordmark inline, max 40px height */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img
-              src={settings.logo}
-              alt={settings.businessName}
-              className="h-12 w-12 object-contain group-hover:scale-105 transition-transform mix-blend-multiply"
-            />
+            <div className="h-12 w-12 overflow-hidden flex items-center justify-center flex-shrink-0">
+              <img
+                src={settings.logo}
+                alt={settings.businessName}
+                className="h-full w-full object-contain scale-[1.85] group-hover:scale-[1.95] transition-transform mix-blend-multiply"
+              />
+            </div>
             <span className="text-[20px] font-bold tracking-[0.06em] uppercase leading-none group-hover:text-primary transition-colors" style={{ color: 'var(--dark)' }}>
               {settings.businessName}
             </span>
