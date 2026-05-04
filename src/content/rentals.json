@@ -11,7 +11,7 @@
     "priceCard": {
       "label": "Flat Fee Rental Listing",
       "price": "$399",
-      "subtitle": "Full tenant placement. That's it.",
+      "subtitle": "No Hidden Fees",
       "features": [
         "MLS & HAR listing",
         "Rental market analysis",
@@ -22,9 +22,9 @@
   },
   "pullQuote": "\"The right tenant changes everything. We help you find them.\"",
   "features": {
-    "title": "What you get",
     "titlePrefix": "What you",
     "titleItalic": "get",
+    "title": "What you get",
     "description": "Our flat fee covers the full tenant placement process, from listing to lease signing.",
     "items": [
       {
@@ -55,17 +55,24 @@
   },
   "comparison": {
     "title": "Compare our fees",
-    "titlePrefix": "Compare our",
-    "titleItalic": "fees",
     "description": "The standard rental commission is one full month's rent, split between the listing agent and the tenant's agent. Here's how our model compares.",
     "traditional": {
       "title": "The Traditional Model",
       "description": "Most listing agents charge half of the first month's rent to list your rental property.",
       "exampleLabel": "Example: $2,000/month Rental",
       "lines": [
-        { "label": "Listing Agent (50%):", "value": "$1,000" },
-        { "label": "Tenant's Agent (50%):", "value": "$1,000" },
-        { "label": "Total Commission:", "value": "$2,000" }
+        {
+          "label": "Listing Agent (50%):",
+          "value": "$1,000"
+        },
+        {
+          "label": "Tenant's Agent (50%):",
+          "value": "$1,000"
+        },
+        {
+          "label": "Total Commission:",
+          "value": "$2,000"
+        }
       ],
       "summary": "That's $1,000 paid just to list your rental."
     },
@@ -74,24 +81,55 @@
       "description": "We charge a flat $399 to list your rental. We still offer the standard 50% to the tenant's agent to ensure your property gets maximum exposure.",
       "exampleLabel": "Same $2,000/month Rental:",
       "lines": [
-        { "label": "Tidal Listing Fee:", "value": "$399" },
-        { "label": "Tenant's Agent:", "value": "$1,000" },
-        { "label": "Total Cost:", "value": "$1,399" }
+        {
+          "label": "Tidal Listing Fee:",
+          "value": "$399"
+        },
+        {
+          "label": "Tenant's Agent:",
+          "value": "$1,000"
+        },
+        {
+          "label": "Total Cost:",
+          "value": "$1,399"
+        }
       ],
       "summary": "You save $601"
     },
     "savingsTableTitle": "Your Potential Savings",
     "savingsRows": [
-      { "monthlyRent": "$1,500", "traditional": "$750", "tidal": "$399", "savings": "$351" },
-      { "monthlyRent": "$2,000", "traditional": "$1,000", "tidal": "$399", "savings": "$601" },
-      { "monthlyRent": "$2,500", "traditional": "$1,250", "tidal": "$399", "savings": "$851" },
-      { "monthlyRent": "$3,000", "traditional": "$1,500", "tidal": "$399", "savings": "$1,101" }
-    ]
+      {
+        "monthlyRent": "$1,500",
+        "traditional": "$750",
+        "tidal": "$399",
+        "savings": "$351"
+      },
+      {
+        "monthlyRent": "$2,000",
+        "traditional": "$1,000",
+        "tidal": "$399",
+        "savings": "$601"
+      },
+      {
+        "monthlyRent": "$2,500",
+        "traditional": "$1,250",
+        "tidal": "$399",
+        "savings": "$851"
+      },
+      {
+        "monthlyRent": "$3,000",
+        "traditional": "$1,500",
+        "tidal": "$399",
+        "savings": "$1,101"
+      }
+    ],
+    "titleItalic": "fees",
+    "titlePrefix": "Compare our"
   },
   "whyChooseUs": {
-    "title": "Why landlords choose us",
     "titlePrefix": "Why landlords",
     "titleItalic": "choose us",
+    "title": "Why landlords choose us",
     "description": "Experienced investors trust us because we keep it simple and transparent.",
     "items": [
       {
