@@ -22,10 +22,10 @@
     }
   },
   "process": {
-    "title": "What you get",
     "titlePrefix": "What you",
     "titleItalic": "get",
-    "description": "When you list with Tidal Realty Services, you receive professional support throughout the entire sales process. Our goal is simple: maximize exposure while protecting your bottom line.",
+    "title": "What you get",
+    "description": "When you list with Tidal Realty Services, you receive professional support throughout the entire sales process. Our goal is simple: Maximize exposure while protecting your bottom line.",
     "highlightText": "professional support",
     "steps": [
       {
@@ -51,17 +51,23 @@
     ]
   },
   "comparison": {
-    "title": "Compare our fees",
     "titlePrefix": "Compare our",
     "titleItalic": "fees",
+    "title": "Compare our fees",
     "description": "Many of our clients are experienced real estate investors who understand that every percentage point matters. Here's how our flat fee model compares to the traditional approach.",
     "traditional": {
       "title": "The Traditional Model",
       "description": "Most agents charge 5-6% total commission, split between the listing and buyer's agent.",
       "exampleLabel": "Example: $300,000 Home Sale",
       "lines": [
-        { "label": "6% Total Commission:", "value": "$18,000" },
-        { "label": "Listing Agent Portion (3%):", "value": "$9,000" }
+        {
+          "label": "6% Total Commission:",
+          "value": "$18,000"
+        },
+        {
+          "label": "Listing Agent Portion (3%):",
+          "value": "$9,000"
+        }
       ],
       "summary": "That's $9,000 paid just to list your property."
     },
@@ -70,17 +76,43 @@
       "description": "We offer a flat fee MLS listing for just $999. Same service, fraction of the cost.",
       "exampleLabel": "Same $300,000 Home Sale:",
       "lines": [
-        { "label": "Flat Listing Fee:", "value": "$999" },
-        { "label": "Buyer's Agent Commission:", "value": "typically 2-3%" }
+        {
+          "label": "Flat Listing Fee:",
+          "value": "$999"
+        },
+        {
+          "label": "Buyer's Agent Commission:",
+          "value": "typically 2-3%"
+        }
       ],
       "summary": "You save $8,001+"
     },
     "savingsTableTitle": "Your Potential Savings",
     "savingsRows": [
-      { "salePrice": "$250,000", "traditional": "$7,500", "tidal": "$999", "savings": "$6,501" },
-      { "salePrice": "$300,000", "traditional": "$9,000", "tidal": "$999", "savings": "$8,001" },
-      { "salePrice": "$400,000", "traditional": "$12,000", "tidal": "$999", "savings": "$11,001" },
-      { "salePrice": "$500,000", "traditional": "$15,000", "tidal": "$999", "savings": "$14,001" }
+      {
+        "salePrice": "$250,000",
+        "traditional": "$7,500",
+        "tidal": "$999",
+        "savings": "$6,501"
+      },
+      {
+        "salePrice": "$300,000",
+        "traditional": "$9,000",
+        "tidal": "$999",
+        "savings": "$8,001"
+      },
+      {
+        "salePrice": "$400,000",
+        "traditional": "$12,000",
+        "tidal": "$999",
+        "savings": "$11,001"
+      },
+      {
+        "salePrice": "$500,000",
+        "traditional": "$15,000",
+        "tidal": "$999",
+        "savings": "$14,001"
+      }
     ]
   },
   "cta": {
