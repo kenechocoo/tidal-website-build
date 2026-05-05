@@ -98,6 +98,13 @@ export default function RentalsPage() {
               <div className="space-y-16">
                 {rentals.features.items.map((feature, i) => {
                   const Icon = iconMap[feature.icon as IconName];
+                  // Rotate through three theme palettes so each card feels distinct
+                  const palettes = [
+                    { bg: '#3A5A7C', accent: '#8FB8D4', iconColor: 'white' },
+                    { bg: '#D6DEE6', accent: '#3A5A7C', iconColor: '#3A5A7C' },
+                    { bg: 'var(--accent-warm)', accent: 'var(--soft)', iconColor: 'white' },
+                  ];
+                  const palette = palettes[i % palettes.length];
                   return (
                   <motion.div
                     key={feature.title}
@@ -116,12 +123,43 @@ export default function RentalsPage() {
                         {feature.description}
                       </p>
                     </div>
-                    <div className="h-[280px] rounded-2xl overflow-hidden" style={{ direction: 'ltr' }}>
-                      <img
-                        src={feature.image}
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
+                    {/* Icon graphic card — replaces unrelated stock photo with a visual that
+                        actually represents the feature using the existing icon */}
+                    <div
+                      className="h-[280px] rounded-2xl overflow-hidden relative flex items-center justify-center"
+                      style={{ direction: 'ltr', background: palette.bg }}
+                    >
+                      {/* Decorative concentric circles for depth */}
+                      <div
+                        className="absolute rounded-full"
+                        style={{
+                          width: '420px',
+                          height: '420px',
+                          border: `1px solid ${palette.accent}`,
+                          opacity: 0.25,
+                          left: '50%',
+                          top: '50%',
+                          transform: 'translate(-50%, -50%)',
+                        }}
                       />
+                      <div
+                        className="absolute rounded-full"
+                        style={{
+                          width: '260px',
+                          height: '260px',
+                          border: `1px solid ${palette.accent}`,
+                          opacity: 0.4,
+                          left: '50%',
+                          top: '50%',
+                          transform: 'translate(-50%, -50%)',
+                        }}
+                      />
+                      {Icon && (
+                        <Icon
+                          className="relative z-10"
+                          style={{ width: 120, height: 120, color: palette.iconColor, strokeWidth: 1.25 }}
+                        />
+                      )}
                     </div>
                   </motion.div>
                   );

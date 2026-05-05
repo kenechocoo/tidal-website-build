@@ -15,8 +15,7 @@
       "features": [
         "MLS & HAR listing",
         "Rental market analysis",
-        "Tenant screening",
-        "Lease preparation & move-in"
+        "Tenant screening"
       ]
     }
   },
@@ -44,12 +43,6 @@
         "title": "Tenant Screening & Background Checks",
         "description": "Every applicant goes through comprehensive background checks, credit reports, rental history verification, and income qualification.",
         "image": "/assets/home-hero-houston.jpg"
-      },
-      {
-        "icon": "Key",
-        "title": "Lease Preparation & Move-In",
-        "description": "From lease drafting and execution to move-in coordination and property walkthrough, we handle every step.",
-        "image": "/assets/home-hero-house.jpg"
       }
     ]
   },

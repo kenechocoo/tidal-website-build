@@ -63,7 +63,7 @@ pids
 .dev-ports.json
 
 # Public Assets
-public/assets
+# (intentionally tracked so Netlify CI builds include them)
 
 # Generated API
 .api/

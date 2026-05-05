@@ -1,4 +1,4 @@
-import { Component, lazy, ReactElement, ReactNode, Suspense, type ErrorInfo } from 'react';
+import { Component, lazy, ReactElement, ReactNode, Suspense, useEffect, type ErrorInfo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Footer from '@/layouts/parts/Footer';
@@ -68,6 +68,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  // Scroll to top when the user navigates to a new page so they always
+  // land on the hero / first section instead of inheriting the scroll
+  // position from the previous page.
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
 
   return (
     <Website>
