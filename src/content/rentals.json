@@ -30,19 +30,19 @@
         "icon": "FileText",
         "title": "MLS & HAR Listing",
         "description": "Your rental property gets listed on MLS and HAR with professional descriptions and broad syndication to major rental search platforms.",
-        "image": "/assets/section-bg.jpeg"
+        "image": "/assets/rental-listing-document.jpg"
       },
       {
         "icon": "Search",
         "title": "Rental Market Pricing Analysis",
         "description": "We analyze comparable rentals, local trends, and market conditions to position your property at the optimal rental price.",
-        "image": "/assets/hero-house.jpg"
+        "image": "/assets/rental-market-analysis.jpg"
       },
       {
         "icon": "ShieldCheck",
         "title": "Tenant Screening & Background Checks",
         "description": "Every applicant goes through comprehensive background checks, credit reports, rental history verification, and income qualification.",
-        "image": "/assets/home-hero-houston.jpg"
+        "image": "/assets/tenant-screening.jpg"
       }
     ]
   },
